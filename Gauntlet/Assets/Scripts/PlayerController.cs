@@ -13,10 +13,33 @@ public class PlayerController : MonoBehaviour
 
     private bool moving = false;
     private Vector3 moveForward = Vector3.forward;
+
+
+
+
+    //melee attack variables
+    public GameObject meleeWeapon;
+    public Transform meleeSpawn;
+    private float meleeDelayTime =4f;
+    private bool canSwing;
+
+    //shoot attack variables
+    public GameObject projectileWeapon;
+    public Transform shootSpawn;
+    private float shootDelayTime = 4f;
+    private bool canShoot;
+
+
+    //collectible variables
+    public int potionAmt;
+    public int foodAmt;
+    public int keyAmt;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        canSwing = true;
+        canShoot = true;
     }
 
     // Update is called once per frame
@@ -53,7 +76,58 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
+
+
+    /// <summary>
+    /// meleeattack
+    /// </summary>
+    private void MeleeAttack()
+    {
+        if (canSwing)
+        {
+            Instantiate(meleeWeapon, transform.position, Quaternion.identity);
+            StartCoroutine(SwingDelay());
+        }
+    }
+    IEnumerator  SwingDelay()
+    {
+        canSwing = false;
+        yield return  new WaitForSeconds(meleeDelayTime);
+    }
+    /// <summary>
+    /// Projectile attack
+    /// </summary>
+    private void ProjectileAttack()
+    {
+        if (canShoot)
+        {
+            Instantiate(projectileWeapon, transform.position, Quaternion.identity);
+            StartCoroutine(ShootDelay());
+        }
+    }
+    IEnumerator ShootDelay()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(shootDelayTime);
+    }
+
+    /// <summary>
+    /// item container
+    /// </summary>
+    private void ItemContainer()
+    {
+
+    }
+
+
+
+
+
+
+
+
+
     private Transform DetectInDirection(Vector3 direction)
     {
         float dist = 1.1f;
@@ -71,7 +145,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GUILayout.Button("forwards") && !moving)
         {
-            StartCoroutine(Move(moveForward));
+            StartCoroutine(Move(Vector3.forward));
         }
         if (GUILayout.Button("Left"))
         {
@@ -84,6 +158,14 @@ public class PlayerController : MonoBehaviour
         if (GUILayout.Button("back"))
         {
             StartCoroutine(Move(Vector3.back));
+        }
+        if (GUILayout.Button("MAttack"))
+        {
+            MeleeAttack();
+        }
+        if (GUILayout.Button("pAttack"))
+        {
+            ProjectileAttack();
         }
     }
 }

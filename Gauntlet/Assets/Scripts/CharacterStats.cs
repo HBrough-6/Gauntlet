@@ -8,13 +8,25 @@ public class CharacterStats : MonoBehaviour
     public int playerMagic;
     private int playerHealth;
     public static int playerSpeed;
-    private void HurtByMelee()
-    {
-        //checks collided enemy's damage
 
 
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -22,10 +34,6 @@ public class CharacterStats : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-
-
-
         //Resources
         if (other.gameObject.CompareTag("Food"))
         {
