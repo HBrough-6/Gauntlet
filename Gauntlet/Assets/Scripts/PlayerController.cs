@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     private float speed = 2;
     private float moveDist = 0.5f;
 
-    private bool moving = false;
+    public bool moving = false;
+    public Vector3 nextMoveDir;
     private Vector3 moveForward = Vector3.forward;
     // Start is called before the first frame update
     void Start()
@@ -27,29 +28,33 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Move(Vector3 direction)
     {
+
         Transform objectInWay = DetectInDirection(direction);
         if (objectInWay == null)
         {
-            Vector3 startPos = transform.position;
-            Vector3 endPos = transform.position + direction * moveDist;
-            moving = true;
-            float startTime = Time.time;
-            float journeyLength = Vector3.Distance(startPos, endPos);
-
-            float percentComplete = 0;
-            while (percentComplete < 1)
+            if (!moving)
             {
-                // Distance moved equals elapsed time times speed..
-                float distCovered = (Time.time - startTime) * speed;
-                // Fraction of journey completed equals current distance divided by total distance.
-                float fractionOfJourney = distCovered / journeyLength;
-                // Set our position as a fraction of the distance between the markers.
-                transform.position = Vector3.Lerp(startPos, endPos, fractionOfJourney);
-                percentComplete = fractionOfJourney;
-                yield return null;
-            }
+                Vector3 startPos = transform.position;
+                Vector3 endPos = transform.position + direction * moveDist;
+                moving = true;
+                float startTime = Time.time;
+                float journeyLength = Vector3.Distance(startPos, endPos);
 
-            moving = false;
+                float percentComplete = 0;
+                while (percentComplete < 1)
+                {
+                    // Distance moved equals elapsed time times speed..
+                    float distCovered = (Time.time - startTime) * speed;
+                    // Fraction of journey completed equals current distance divided by total distance.
+                    float fractionOfJourney = distCovered / journeyLength;
+                    // Set our position as a fraction of the distance between the markers.
+                    transform.position = Vector3.Lerp(startPos, endPos, fractionOfJourney);
+                    percentComplete = fractionOfJourney;
+                    yield return null;
+                }
+
+                moving = false;
+            }
         }
     }
 
@@ -69,21 +74,25 @@ public class PlayerController : MonoBehaviour
 
     private void OnGUI()
     {
-        if (GUILayout.Button("forwards") && !moving)
+        if (GUILayout.Button("forwards"))
         {
-            StartCoroutine(Move(moveForward));
+            StartCoroutine(Move(Vector3.forward));
+            nextMoveDir = Vector3.forward;
         }
         if (GUILayout.Button("Left"))
         {
             StartCoroutine(Move(Vector3.left));
+            nextMoveDir = Vector3.forward;
         }
         if (GUILayout.Button("right"))
         {
             StartCoroutine(Move(Vector3.right));
+            nextMoveDir = Vector3.forward;
         }
         if (GUILayout.Button("back"))
         {
             StartCoroutine(Move(Vector3.back));
+            nextMoveDir = Vector3.forward;
         }
     }
 }
