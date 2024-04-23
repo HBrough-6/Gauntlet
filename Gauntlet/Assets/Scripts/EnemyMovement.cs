@@ -170,7 +170,46 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
+        // compare difference between distance in x's and z's
+        // move in the direction that is further away
     }
+
+    // player is to the right of the enemy
+    private void FixedMove()
+    {
+        // compare difference between distance in x's and z's
+        // move in the direction that is further away
+        // find distance between the x and z values
+        float xDif = Mathf.Abs(transform.position.x - transform.position.x);
+        float zDif = Mathf.Abs(transform.position.z - transform.position.z);
+
+        // the enemy is further away in the x axis
+        if (xDif > zDif)
+        {
+            if (transform.position.x < playerTarget.transform.position.x)
+            {
+                // move to the right
+            }
+            else
+            {
+                // move to the left
+            }
+        }
+        // the enemy is further away in the z axis
+        else
+        {
+            // player is higher than the enemy
+            if (transform.position.z < playerTarget.transform.position.z)
+            {
+                // move up
+            }
+            else
+            {
+                // move down
+            }
+        }
+    }
+
 
     private void Attack()
     {
