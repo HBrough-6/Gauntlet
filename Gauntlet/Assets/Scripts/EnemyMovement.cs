@@ -77,92 +77,6 @@ public class EnemyMovement : MonoBehaviour
         
     }
 
-
-    private Transform DetectInDirection(Vector3 direction)
-    {
-        RaycastHit hit;
-        Debug.DrawRay(transform.position, direction, Color.blue, 5);
-        if (Physics.Raycast(transform.position, direction, out hit, detectDist))
-        {
-            Debug.Log(hit.transform.name);
-            return hit.transform;
-        }
-        DoubleDetect(direction);
-        return null;
-    }
-
-    private void MoveTowardsPlayer()
-    {
-        // move up z is greater
-        // move left x is greater
-        // move down z is smaller
-        // move right x is smaller 
-
-        // player is to the right of the enemy
-        if (transform.position.x < playerTarget.transform.position.x)
-        {
-            // player is higher than the enemy
-            if (transform.position.z < playerTarget.transform.position.z)
-            {
-                Debug.Log("move up right");
-                StartCoroutine(Move(Vector3.right + Vector3.forward)); 
-            }
-            // player is below the enemy
-            else if (transform.position.z > playerTarget.transform.position.z)
-            {
-                Debug.Log("move down right");
-                StartCoroutine(Move(Vector3.right + Vector3.back));
-            }
-            // player is at the same height
-            else
-            {
-                Debug.Log("move right");
-                StartCoroutine(Move(Vector3.right));
-            }
-        }
-        // player is to the left of the enemy
-        else if (transform.position.x > playerTarget.transform.position.x)
-        {
-            // player is higher than the enemy
-            if (transform.position.z < playerTarget.transform.position.z)
-            {
-                Debug.Log("move up left");
-                StartCoroutine(Move(Vector3.left + Vector3.forward));
-            }
-            // player is below the enemy
-            else if (transform.position.z > playerTarget.transform.position.z)
-            {
-                Debug.Log("move down left");
-                StartCoroutine(Move(Vector3.left + Vector3.back));
-            }
-            // player is at the same height
-            else
-            {
-                Debug.Log("move left");
-                StartCoroutine(Move(Vector3.left));
-            }
-        }
-        // player is at the same x
-        else
-        {
-            // player is higher than the enemy
-            if (transform.position.z < playerTarget.transform.position.z)
-            {
-                Debug.Log("move up");
-                StartCoroutine(Move(Vector3.forward));
-            }
-            // player is below the enemy
-            else if (transform.position.z > playerTarget.transform.position.z)
-            {
-                Debug.Log("move down");
-                StartCoroutine(Move(Vector3.back));
-            }
-        }
-
-        // compare difference between distance in x's and z's
-        // move in the direction that is further away
-    }
-
     // player is to the right of the enemy
     private void FixedMove()
     {
@@ -193,7 +107,7 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
             // the enemy is further away in the z axis
-            else
+            else if (xDif < zDif)
             {
                 // player is higher than the enemy
                 if (transform.position.z < playerTarget.transform.position.z)
@@ -210,14 +124,31 @@ public class EnemyMovement : MonoBehaviour
                     //StartCoroutine(Move(Vector3.back));
                     direction = Vector3.back;
                 }
-
+        }
+        else
+        {
+            // player is higher than the enemy
+            if (transform.position.z <
+                playerTarget.transform.position.z)
+            {
+                // move up
+                Debug.Log("move up");
+                //StartCoroutine(Move(Vector3.forward));
+                direction = Vector3.forward;
+            }
+            else
+            {
+                // move down
+                Debug.Log("move down");
+                //StartCoroutine(Move(Vector3.back));
+                direction = Vector3.back;
+            }
         }
         Debug.Log(direction);
         bool hasNextMove = DoubleDetect(direction);
         if (canAttack)
         {
-            Debug.Log("ATTACK");
-            canAttack = false;
+            StartCoroutine(Attack());
         }
         else
         {
@@ -298,6 +229,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (leftHit && rightHit)
         {
+            Debug.Log("can Attack");
             // reset next move since the raycast did not hit anything
             nextMove = new Vector3(0, -1, 0);
             canAttack = true;
@@ -325,8 +257,15 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-    private void Attack()
+    private IEnumerator Attack()
     {
+        if (canAttack)
+        {
+            Debug.Log("ATTACK");
+            canAttack = false;
+            yield return new WaitForSeconds(3);
+            canAttack = true;
+        }
         
     }
 
