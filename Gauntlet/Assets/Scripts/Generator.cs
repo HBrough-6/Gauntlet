@@ -47,27 +47,37 @@ public class Generator : MonoBehaviour
 
     private void Update()
     {
-        SpawnEnemy();
+        //SpawnEnemy();
     }
 
-
-    public IObjectPool<Enemy> EnemyPool()
+    /*
+    public IObjectPool<Enemy> Pool
     {
-        //get
-        //{
-        // if (_enemyPool == null)
-        // _enemyPool = new ObjectPool <Enemy>()
-       //  }
-        return _enemyPool;
+        get
+        {
+            if (_enemyPool == null)
+                _enemyPool = 
+                    new ObjectPool<Enemy>(
+                    ChooseEnemy,
+                    OnTakeFromPool,
+                    OnReturntoPool,
+                    OnDestroyPoolObject,
+                    true, 
+                    stackDefaultCapacity,
+                    maxPoolSize);
+
+                return _enemyPool;
+        }
     }
 
-    private void ChooseEnemy()
+    private Enemy ChooseEnemy()
     {
-        //spawn enemy
-        //get and set enemy lvl
-        //
+        var thief = Resources.Load("Thief");
+        Enemy thief = go.AddComponent<Enemy>();
+        thief.Pool = Pool;
+        return thief; 
     }
-
+    
 
     private void OnTakeFromPool(Enemy enemy)
     {
@@ -92,9 +102,21 @@ public class Generator : MonoBehaviour
 
 
 
-
+    
     private void SpawnEnemy()
     {
+        var amount = 5;
+
+
+        for (int i = 0; i < amount; i++)
+        {
+            var enemy = Pool.Get();
+            //cvhange this to spawn it in one of four spots
+            //enemy.transform.position = Random.insideUnitSphere * 10;
+            Debug.Log("Enemy spawned");
+
+
+        }
 
         if (BlockGen)
         {
@@ -116,7 +138,7 @@ public class Generator : MonoBehaviour
         }
         StartCoroutine(SpawnDelay());
     }
-
+    */
     private void TakeDamage()
     {
         if (generatorLevel == 1)
@@ -143,6 +165,11 @@ public class Generator : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
     }
 
+
+    /// <summary>
+    /// Coollisions
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.rigidbody.tag == "Magic")
