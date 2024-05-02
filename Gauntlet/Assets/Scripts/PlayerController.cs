@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public bool moving = false;
     public Vector3 nextMoveDir;
     private Vector3 moveForward = Vector3.forward;
+
+    private bool meleeOnCooldown = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
         Transform objectInWay = DetectInDirection(direction);
         if (objectInWay == null)
         {
+
             if (!moving)
             {
                 Vector3 startPos = transform.position;
@@ -56,6 +59,10 @@ public class PlayerController : MonoBehaviour
                 moving = false;
             }
         }
+        else if (objectInWay.gameObject.tag == "Enemy")
+        {
+            StartCoroutine(MeleeAttack(objectInWay.gameObject));
+        }
     }
 
     
@@ -66,7 +73,6 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(transform.position, direction, Color.blue, 5);
         if (Physics.Raycast(transform.position, direction, out hit, dist))
         {
-            Debug.Log(hit.transform.name);
             return hit.transform;
         }
         return null;
@@ -93,6 +99,18 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Move(Vector3.back));
             nextMoveDir = Vector3.forward;
+        }
+    }
+
+    private IEnumerator MeleeAttack(GameObject enemy)
+    {
+        if (!meleeOnCooldown)
+        {
+            meleeOnCooldown = !meleeOnCooldown;
+            enemy.GetComponent<EnemyMovement>().TakeDamage();
+            yield return new WaitForSeconds(1);
+            meleeOnCooldown = !meleeOnCooldown;
+
         }
     }
 }

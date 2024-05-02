@@ -17,11 +17,6 @@ public class EnemyMovement : MonoBehaviour
     private bool moving = false;
     public bool canAttack = false;
     private Vector3 moveForward = Vector3.forward;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -60,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
         // DETERMINE THE OFFSET THAT THE ENEMY NEEDS TO BE RESET TO
         // ABOVE 0.125 WHAT IS IT?
         // BELOW 0.125 WHAT IS IT?
-        if (transform.position.x % 0.25 != 0 || transform.position.z % 0.25 != 0)
+       /* if (transform.position.x % 0.25 != 0 || transform.position.z % 0.25 != 0)
         {
             float newX, newZ;
             if (transform.position.x % 2 <= 0.125f)
@@ -73,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
             }
             newX = transform.position.x - transform.position.x % 2;
             newZ = transform.position.z - transform.position.z % 2;
-        }
+        }*/
         
     }
 
@@ -128,8 +123,7 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             // player is higher than the enemy
-            if (transform.position.z <
-                playerTarget.transform.position.z)
+            if (transform.position.z < playerTarget.transform.position.z)
             {
                 // move up
                 Debug.Log("move up");
@@ -144,7 +138,6 @@ public class EnemyMovement : MonoBehaviour
                 direction = Vector3.back;
             }
         }
-        Debug.Log(direction);
         bool hasNextMove = DoubleDetect(direction);
         if (canAttack)
         {
@@ -212,8 +205,8 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (direction == Vector3.left)
         {
-            relativeLeft = Vector3.back;
-            relativeRight = Vector3.forward;
+            relativeLeft = Vector3.forward;
+            relativeRight = Vector3.back;
         }
         else if (direction == Vector3.back)
         {
@@ -237,11 +230,11 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (leftHit)
         {
-            nextMove = relativeLeft;
+            nextMove = relativeRight;
         }
         else if (rightHit)
         {
-            nextMove = relativeRight;
+            nextMove = relativeLeft;
         }
         else
         {
@@ -266,24 +259,11 @@ public class EnemyMovement : MonoBehaviour
             yield return new WaitForSeconds(3);
             canAttack = true;
         }
-        
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TakeDamage()
     {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("entered");
-            moving = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("exited");
-            moving = false;
-        }
+        gameObject.SetActive(false);
     }
 }
