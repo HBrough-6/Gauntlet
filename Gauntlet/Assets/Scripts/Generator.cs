@@ -14,15 +14,9 @@ public class Generator : MonoBehaviour
     [SerializeField] float delayTime;
     private bool canSpawn;
 
-    //list of enemies to spawn
-    public GameObject Ghost;
-    public List<GameObject> enemyTypes;
-    public GameObject Grunt;
-    public GameObject Demon;
-    public GameObject Lobber;
-    public GameObject Sorcerer;
-    public GameObject Thief;
-    public GameObject EnemyObject;
+
+    //public List<GameObject> enemyTypes;
+    public GameObject enemySpawn;
 
 
     //surrounding spaces
@@ -42,15 +36,7 @@ public class Generator : MonoBehaviour
     private IObjectPool<Enemy> _enemyPool;
 
 
-
-
-
-    private void Update()
-    {
-        //SpawnEnemy();
-    }
-
-    /*
+    
     public IObjectPool<Enemy> Pool
     {
         get
@@ -72,10 +58,17 @@ public class Generator : MonoBehaviour
 
     private Enemy ChooseEnemy()
     {
-        var thief = Resources.Load("Thief");
-        Enemy thief = go.AddComponent<Enemy>();
-        thief.Pool = Pool;
-        return thief; 
+
+        var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+        Enemy _enemy = go.AddComponent<Enemy>();
+
+
+        go.name = "Drone";
+
+        //thief.Pool = Pool;
+        return _enemy;
+        
     }
     
 
@@ -102,34 +95,35 @@ public class Generator : MonoBehaviour
 
 
 
-    
-    private void SpawnEnemy()
+
+    public void SpawnEnemy()
     {
         var amount = 5;
 
-
-        for (int i = 0; i < amount; i++)
-        {
-            var enemy = Pool.Get();
-            //cvhange this to spawn it in one of four spots
-            //enemy.transform.position = Random.insideUnitSphere * 10;
-            Debug.Log("Enemy spawned");
-
-
-        }
-
         if (BlockGen)
         {
-            //get from pool
+            for (int i = 0; i < amount; i++)
+            {
+                var enemy = Pool.Get();
+                //cvhange this to spawn it in one of 8 spots
+                enemy.transform.position = Random.insideUnitSphere * 10;
+                Debug.Log("Enemy spawned");
+
+
+            }
         }
         if (!BlockGen)
         {
-            //ghosts
+            for (int i = 0; i < amount; i++)
+            {
+                var enemy = Pool.Get();
+                //cvhange this to spawn it in one of 8 spots
+                enemy.transform.position = Random.insideUnitSphere * 10;
+                Debug.Log("Enemy spawned");
+
+
+            }
         }
-
-
-
-
         if (canSpawn)
         {
             //spawn enemy
@@ -138,7 +132,7 @@ public class Generator : MonoBehaviour
         }
         StartCoroutine(SpawnDelay());
     }
-    */
+    
     private void TakeDamage()
     {
         if (generatorLevel == 1)

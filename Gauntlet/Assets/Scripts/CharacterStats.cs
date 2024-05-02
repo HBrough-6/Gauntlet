@@ -13,25 +13,6 @@ public class CharacterStats : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void OnTriggerEnter(Collider other)
     {
         //Resources
