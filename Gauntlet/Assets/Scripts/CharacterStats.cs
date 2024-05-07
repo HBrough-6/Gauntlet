@@ -5,16 +5,17 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     public float armorStrength;
-    public int playerMagic;
+    public int shotStrength;
+    public int shotTravelSpeed;
+    public BoxCollider ShotCollisionBox;
+    public int MagicVMonster;
+    public int MagicVGenerator;
+    public int PotionShotVMonster;
+    public int PotionShotVGenerator;
+    public int MeleeVMonsters;
+    public float MeleeVGenerators;
+    public int RunningSpeed;
     private int playerHealth;
-    public static int playerSpeed;
-    private void HurtByMelee()
-    {
-        //checks collided enemy's damage
-
-
-
-    }
 
 
 
@@ -22,10 +23,6 @@ public class CharacterStats : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-
-
-
         //Resources
         if (other.gameObject.CompareTag("Food"))
         {
