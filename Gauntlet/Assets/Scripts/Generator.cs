@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
-
+/*
+ * [Rico,Alex]
+ * 5/7/24
+ * 
+ */
 public class Generator : MonoBehaviour
 {
     //spawner types
@@ -20,19 +24,19 @@ public class Generator : MonoBehaviour
 
 
     //surrounding spaces
-    public GameObject TopLeft;
-    public GameObject TopCenter;
-    public GameObject TopRight;
-    public GameObject LeftSpace;
-    public GameObject RightSpace;
-    public GameObject LowLeft;
-    public GameObject LowCenter;
-    public GameObject LowRight;
+    private Vector3 TopLeft;
+    private Vector3 TopCenter;
+    private Vector3 TopRight;
+    private Vector3 LeftSpace;
+    private Vector3 RightSpace;
+    private Vector3 LowLeft;
+    private Vector3 LowCenter;
+    private Vector3 LowRight;
 
 
     //pool
-    public int maxPoolSize = 5;
-    public int stackDefaultCapacity = 10;
+    public int maxPoolSize = 1;
+    public int stackDefaultCapacity = 3;
     private IObjectPool<Enemy> _enemyPool;
 
 
@@ -51,26 +55,23 @@ public class Generator : MonoBehaviour
                     true, 
                     stackDefaultCapacity,
                     maxPoolSize);
-
                 return _enemyPool;
         }
     }
 
     private Enemy ChooseEnemy()
     {
-
-        var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        var go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
         Enemy _enemy = go.AddComponent<Enemy>();
+        go.name = "tief";
 
-
-        go.name = "Drone";
-
-        //thief.Pool = Pool;
+        _enemy.Pool = (IObjectPool<Generator>)Pool;
         return _enemy;
-        
+
+
     }
-    
+
 
     private void OnTakeFromPool(Enemy enemy)
     {
@@ -106,7 +107,7 @@ public class Generator : MonoBehaviour
             {
                 var enemy = Pool.Get();
                 //cvhange this to spawn it in one of 8 spots
-                enemy.transform.position = Random.insideUnitSphere * 10;
+                enemy.transform.position = TopLeft;
                 Debug.Log("Enemy spawned");
 
 
@@ -118,7 +119,7 @@ public class Generator : MonoBehaviour
             {
                 var enemy = Pool.Get();
                 //cvhange this to spawn it in one of 8 spots
-                enemy.transform.position = Random.insideUnitSphere * 10;
+                enemy.transform.position = LowLeft;
                 Debug.Log("Enemy spawned");
 
 
@@ -159,6 +160,19 @@ public class Generator : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
     }
 
+
+
+
+
+    /*
+private Enemy ChooseEnemy()
+{
+    var _enemy = Resources.Load("thief");
+    _enemy.Pool = Pool;
+    return _enemy;
+
+}
+*/
 
     /// <summary>
     /// Coollisions
