@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
 /*
@@ -35,12 +36,12 @@ public class Generator : MonoBehaviour
 
 
     //pool
-    public int maxPoolSize = 1;
-    public int stackDefaultCapacity = 3;
+    public int maxPoolSize = 10;
+    public int stackDefaultCapacity = 10;
     private IObjectPool<Enemy> _enemyPool;
 
 
-    
+
     public IObjectPool<Enemy> Pool
     {
         get
@@ -58,23 +59,16 @@ public class Generator : MonoBehaviour
                 return _enemyPool;
         }
     }
-
     private Enemy ChooseEnemy()
     {
-        var go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
-        Enemy _enemy = go.AddComponent<Enemy>();
-        go.name = "tief";
-
-        _enemy.Pool = (IObjectPool<Generator>)Pool;
-        return _enemy;
-
+        GameObject enemy = Resources.Load("thief") as GameObject;
+        return enemy.GetComponent<Enemy>();
 
     }
 
-
     private void OnTakeFromPool(Enemy enemy)
     {
+        
         enemy.gameObject.SetActive(true);
     }
 
@@ -99,20 +93,23 @@ public class Generator : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        var amount = 5;
-
-        if (BlockGen)
-        {
-            for (int i = 0; i < amount; i++)
+        var amount = 3;
+        //BlockGen = true;
+        //if (BlockGen)
+        //{
+        for (int i = 0; i < amount; i++)
             {
-                var enemy = Pool.Get();
+            Debug.Log("spawnEnemy");
+
+            var spawnEnemy = Pool.Get();
                 //cvhange this to spawn it in one of 8 spots
-                enemy.transform.position = TopLeft;
-                Debug.Log("Enemy spawned");
+                spawnEnemy.transform.position = new Vector3 (0,0,0);
+                //Debug.Log("Enemy spawned");
 
 
             }
-        }
+        //}
+        /*
         if (!BlockGen)
         {
             for (int i = 0; i < amount; i++)
@@ -131,7 +128,9 @@ public class Generator : MonoBehaviour
 
 
         }
-        StartCoroutine(SpawnDelay());
+                */
+        //StartCoroutine(SpawnDelay());
+
     }
     
     private void TakeDamage()

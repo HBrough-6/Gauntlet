@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Clientmanager : MonoBehaviour
 {
-    private Generator _pool;
+    private Generator _generator;
 
     private void Start()
     {
-        _pool = gameObject.AddComponent<Generator>();
+        //_generator = gameObject.AddComponent<Generator>();
     }
 
 
@@ -16,7 +16,12 @@ public class Clientmanager : MonoBehaviour
     private void OnGUI()
     {
         if (GUILayout.Button("Spawn Drone"))
-            _pool.SpawnEnemy();
+        {
+            _generator.SpawnEnemy();
+                Debug.Log("Yeehaw");
+        }
+
+
     }
 
 }
