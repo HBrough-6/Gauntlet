@@ -21,7 +21,7 @@ public class Generator : MonoBehaviour
 
 
     //public List<GameObject> enemyTypes;
-    public GameObject enemySpawn;
+    [SerializeField] private Enemy enemyPrefab;
 
 
     //surrounding spaces
@@ -38,10 +38,22 @@ public class Generator : MonoBehaviour
     //pool
     public int maxPoolSize = 10;
     public int stackDefaultCapacity = 10;
-    private IObjectPool<Enemy> _enemyPool;
+    public Enemy thiefPrefab;
+    public IObjectPool<Enemy> _enemyPool;
 
-
-
+    // Start is called before the first frame update
+    void Awake()
+    {
+        _enemyPool = new ObjectPool<Enemy>(
+                    CreateEnemy,
+                    OnTakeFromPool,
+                    OnReturntoPool,
+                    OnDestroyPoolObject,
+                    true,
+                    stackDefaultCapacity,
+                    maxPoolSize);
+    }
+    /*
     public IObjectPool<Enemy> Pool
     {
         get
@@ -59,13 +71,24 @@ public class Generator : MonoBehaviour
                 return _enemyPool;
         }
     }
+    
+
     private Enemy ChooseEnemy()
     {
-        GameObject enemy = Resources.Load("thief") as GameObject;
-        return enemy.GetComponent<Enemy>();
+        var go = new GameObject("Pooled Enemy");
+        //go.AddComponent<Enemy>();
+        return go;
+       //GameObject enemy = Resources.Load("thief") as GameObject;
+       //return enemy.GetComponent<Enemy>();
 
     }
+    */
+    private Enemy CreateEnemy()
+    {
 
+        var enemy = Instantiate(enemyPrefab);
+        return enemy;
+    }
     private void OnTakeFromPool(Enemy enemy)
     {
         
@@ -82,6 +105,13 @@ public class Generator : MonoBehaviour
         Destroy(enemy.gameObject);
     }
 
+    public void SpawnEnemy()
+    {
+        var enemy = _enemyPool.Get();
+        enemy.transform.position = TopLeft;
+
+
+    }
 
 
 
@@ -90,7 +120,7 @@ public class Generator : MonoBehaviour
 
 
 
-
+    /*
     public void SpawnEnemy()
     {
         var amount = 3;
@@ -101,15 +131,21 @@ public class Generator : MonoBehaviour
             {
             Debug.Log("spawnEnemy");
 
-            var spawnEnemy = Pool.Get();
+            Enemy enemy = Instantiate(thiefPrefab);
+
+
+
+
+
+            //var spawnEnemy = Pool.Get();
                 //cvhange this to spawn it in one of 8 spots
-                spawnEnemy.transform.position = new Vector3 (0,0,0);
+                //spawnEnemy.transform.position = new Vector3 (0,0,0);
                 //Debug.Log("Enemy spawned");
 
 
             }
         //}
-        /*
+        
         if (!BlockGen)
         {
             for (int i = 0; i < amount; i++)
@@ -128,11 +164,11 @@ public class Generator : MonoBehaviour
 
 
         }
-                */
+                
         //StartCoroutine(SpawnDelay());
 
     }
-    
+    */
     private void TakeDamage()
     {
         if (generatorLevel == 1)
@@ -158,7 +194,6 @@ public class Generator : MonoBehaviour
     {
         yield return new WaitForSeconds(delayTime);
     }
-
 
 
 
