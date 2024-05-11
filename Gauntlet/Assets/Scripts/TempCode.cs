@@ -5,28 +5,21 @@ using UnityEngine.Pool;
 
 public class TempCode : MonoBehaviour
 {
-
+    //pool
     [SerializeField] Transform[] spawnPositions;
     [SerializeField] private float spawnTime = .5f;
-     private float timeSinceSpawn;
-
     [SerializeField] private TempEnemy enemyPrefab;
     public IObjectPool<TempEnemy> _enemyPool;
-
-
-    //pool
+    private float timeSinceSpawn;
     public int maxPoolSize = 10;
     public int stackDefaultCapacity = 10;
-    //public TempEnemy thiefPrefab;
 
-    //[SerializeField] Vector3 apple;
 
 
     // Start is called before the first frame update
     void Awake()
     {
         _enemyPool = new ObjectPool<TempEnemy>(CreateEnemy,
-            
                     OnTakeFromPool,
                     OnReturntoPool,
                     OnDestroyPoolObject,
@@ -52,16 +45,20 @@ public class TempCode : MonoBehaviour
 
 
 
-    
+    //get
     private void OnTakeFromPool(TempEnemy enemy)
     {
-
+        
+        int randomValue = Random.Range(0, spawnPositions.Length);
+        Debug.Log(randomValue);
         enemy.gameObject.SetActive(true);
 
-        Transform  spawnAt = spawnPositions[Random.Range(0,spawnPositions.Length)];
+        Transform spawnAt = spawnPositions[randomValue];
         enemy.transform.position = spawnAt.position;
+        
     }
 
+    //release
     private void OnReturntoPool(TempEnemy enemy)
     {
         enemy.gameObject.SetActive(false);

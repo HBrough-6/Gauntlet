@@ -5,11 +5,12 @@ using UnityEngine.Pool;
 
 public class TempEnemy : MonoBehaviour
 {
-    public float _currentHealth;
+    public int _currentHealth;
     [SerializeField]
-    private float maxHealth;
+    private int maxHealth;
     [SerializeField]
     private float timeToSelfDestruct = 3f;
+    public int enemyLevel;
 
 
     private IObjectPool<TempEnemy> _enemyPool { get; set; }
@@ -20,7 +21,7 @@ public class TempEnemy : MonoBehaviour
 
     private void Start()
     {
-        _currentHealth = maxHealth;
+        enemyLevel = maxHealth;
     }
 
     private void OnEnable()
@@ -28,10 +29,6 @@ public class TempEnemy : MonoBehaviour
         //AttackPlayer();
         StartCoroutine(SelfDestruct());
 
-    }
-    private void OnDisable()
-    {
-        //ResetDrone();
     }
 
     IEnumerator SelfDestruct()
@@ -46,19 +43,14 @@ public class TempEnemy : MonoBehaviour
         _enemyPool.Release(this);
 
     }
-    /*
-    private void ResetEnemy()
-    {
-        //_currentHealth = maxHealth;
-    }
-    
+    /*    
     public void AttackPlayer()
     {
         Debug.Log("Attack player behaviors would go here");
     }
 */
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         _currentHealth -= amount;
 
@@ -69,7 +61,6 @@ public class TempEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hgjhkuj");
         TakeDamage(_currentHealth);
     }
 }

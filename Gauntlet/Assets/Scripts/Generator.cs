@@ -7,45 +7,29 @@ using UnityEngine.Pool;
 /*
  * [Rico,Alex]
  * 5/7/24
- * 
+ * This code is responsible for making an enemy pool, 
+ * spawning enemies from the pool, and returning them. 
  */
 public class Generator : MonoBehaviour
 {
-    //spawner types
-    private int generatorLevel;
+    //spawner type and level variables
+    [SerializeField] int generatorLevel;
     [SerializeField] bool BlockGen;
 
-    //Spawn variables
-    [SerializeField] float delayTime;
-    private bool canSpawn;
-
-
-    //public List<GameObject> enemyTypes;
-    [SerializeField] private Enemy enemyPrefab;
-
-
-    //surrounding spaces
-    private Vector3 TopLeft;
-    private Vector3 TopCenter;
-    private Vector3 TopRight;
-    private Vector3 LeftSpace;
-    private Vector3 RightSpace;
-    private Vector3 LowLeft;
-    private Vector3 LowCenter;
-    private Vector3 LowRight;
-
-
-    //pool
+    //pool variables
+    [SerializeField] Transform[] spawnPositions;
+    [SerializeField] private float spawnTime = .5f;
+    [SerializeField] private TempEnemy enemyPrefab;
+    public IObjectPool<TempEnemy> _enemyPool;
+    private float timeSinceSpawn;
     public int maxPoolSize = 10;
     public int stackDefaultCapacity = 10;
-    public Enemy thiefPrefab;
-    public IObjectPool<Enemy> _enemyPool;
+
 
     // Start is called before the first frame update
     void Awake()
     {
-        _enemyPool = new ObjectPool<Enemy>(
-                    CreateEnemy,
+        _enemyPool = new ObjectPool<TempEnemy>(CreateEnemy,
                     OnTakeFromPool,
                     OnReturntoPool,
                     OnDestroyPoolObject,
@@ -53,128 +37,68 @@ public class Generator : MonoBehaviour
                     stackDefaultCapacity,
                     maxPoolSize);
     }
-    /*
-    public IObjectPool<Enemy> Pool
-    {
-        get
-        {
-            if (_enemyPool == null)
-                _enemyPool = 
-                    new ObjectPool<Enemy>(
-                    ChooseEnemy,
-                    OnTakeFromPool,
-                    OnReturntoPool,
-                    OnDestroyPoolObject,
-                    true, 
-                    stackDefaultCapacity,
-                    maxPoolSize);
-                return _enemyPool;
-        }
-    }
-    
 
-    private Enemy ChooseEnemy()
-    {
-        var go = new GameObject("Pooled Enemy");
-        //go.AddComponent<Enemy>();
-        return go;
-       //GameObject enemy = Resources.Load("thief") as GameObject;
-       //return enemy.GetComponent<Enemy>();
 
-    }
-    */
-    private Enemy CreateEnemy()
+    private TempEnemy CreateEnemy()
     {
-
-        var enemy = Instantiate(enemyPrefab);
+        TempEnemy enemy = Instantiate(enemyPrefab);
+        enemy.SetPool(_enemyPool);
         return enemy;
     }
-    private void OnTakeFromPool(Enemy enemy)
+
+    private void Update()
     {
-        
-        enemy.gameObject.SetActive(true);
+        SpawnEnemy();
     }
 
-    private void OnReturntoPool(Enemy enemy)
+
+
+    /// <summary>
+    /// Spawns enemy in one of the positions around generator
+    /// and matches enemy's level with the generator level
+    /// </summary>
+    /// <param name="enemy"></param>
+    private void OnTakeFromPool(TempEnemy enemy)
+    {
+        int randomValue = Random.Range(0, spawnPositions.Length);
+        Debug.Log(randomValue);
+        enemy.gameObject.SetActive(true);
+        enemy.enemyLevel = generatorLevel;
+        enemy._currentHealth = generatorLevel;
+        Transform spawnAt = spawnPositions[randomValue];
+        enemy.transform.position = spawnAt.position;
+    }
+
+    //returns enemy to pool
+    private void OnReturntoPool(TempEnemy enemy)
     {
         enemy.gameObject.SetActive(false);
     }
 
-    private void OnDestroyPoolObject(Enemy enemy)
+    private void OnDestroyPoolObject(TempEnemy enemy)
     {
         Destroy(enemy.gameObject);
     }
 
+    /// <summary>
+    /// Sets time interval for enemies to spawn
+    /// </summary>
     public void SpawnEnemy()
     {
-        var enemy = _enemyPool.Get();
-        enemy.transform.position = TopLeft;
-
-
+        if (Time.time > timeSinceSpawn)
+        {
+            _enemyPool.Get();
+            timeSinceSpawn = Time.time + spawnTime;
+        }
     }
 
 
-
-
-
-
-
-
-    /*
-    public void SpawnEnemy()
-    {
-        var amount = 3;
-        //BlockGen = true;
-        //if (BlockGen)
-        //{
-        for (int i = 0; i < amount; i++)
-            {
-            Debug.Log("spawnEnemy");
-
-            Enemy enemy = Instantiate(thiefPrefab);
-
-
-
-
-
-            //var spawnEnemy = Pool.Get();
-                //cvhange this to spawn it in one of 8 spots
-                //spawnEnemy.transform.position = new Vector3 (0,0,0);
-                //Debug.Log("Enemy spawned");
-
-
-            }
-        //}
-        
-        if (!BlockGen)
-        {
-            for (int i = 0; i < amount; i++)
-            {
-                var enemy = Pool.Get();
-                //cvhange this to spawn it in one of 8 spots
-                enemy.transform.position = LowLeft;
-                Debug.Log("Enemy spawned");
-
-
-            }
-        }
-        if (canSpawn)
-        {
-            //spawn enemy
-
-
-        }
-                
-        //StartCoroutine(SpawnDelay());
-
-    }
-    */
     private void TakeDamage()
     {
         if (generatorLevel == 1)
         {
             //give player points
-            //destroy
+            Destroy(gameObject);
         }
         if (generatorLevel == 2)
         {
@@ -185,28 +109,6 @@ public class Generator : MonoBehaviour
             generatorLevel--;
         }
     }
-    private void DetectOpenSquare()
-    {
-
-    }
-
-    IEnumerator SpawnDelay()
-    {
-        yield return new WaitForSeconds(delayTime);
-    }
-
-
-
-
-    /*
-private Enemy ChooseEnemy()
-{
-    var _enemy = Resources.Load("thief");
-    _enemy.Pool = Pool;
-    return _enemy;
-
-}
-*/
 
     /// <summary>
     /// Coollisions
@@ -254,15 +156,7 @@ private Enemy ChooseEnemy()
         }
         if (collision.rigidbody.tag == "Melee")
         {
-            if (!BlockGen)
-            {
-                TakeDamage();
-
-            }
-            if (BlockGen)
-            {
-                TakeDamage();
-            }
+            TakeDamage();
         }
     }
 }
