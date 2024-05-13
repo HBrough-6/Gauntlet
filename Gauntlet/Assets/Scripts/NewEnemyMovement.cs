@@ -42,6 +42,7 @@ public class NewEnemyMovement : MonoBehaviour
 
         if (!moving && !attacking)
         {
+            Debug.Log("Attacking: " + attacking);
             Debug.Log("making new decision");
             // enemy is going to make a new decision
             // stop attacking
@@ -57,6 +58,7 @@ public class NewEnemyMovement : MonoBehaviour
         {
             Debug.Log("Checking player position");
             // check if the player is still adjacent
+            Debug.Log("Player in range: " + PlayerStillInRange(moveDirection));
             attacking = PlayerStillInRange(moveDirection);
         }
     }
@@ -120,13 +122,13 @@ public class NewEnemyMovement : MonoBehaviour
             if (transform.position.x < closestPlayer.position.x)
             {
                 // move to the right
-                Debug.Log("move right");
+                //Debug.Log("move right");
                 direction = Vector3.right;
             }
             else
             {
                 // move to the left
-                Debug.Log("move left");
+                //Debug.Log("move left");
                 //StartCoroutine(Move(Vector3.left));
                 direction = Vector3.left;
             }
@@ -138,13 +140,13 @@ public class NewEnemyMovement : MonoBehaviour
             if (transform.position.z < closestPlayer.position.z)
             {
                 // move up
-                Debug.Log("move up");
+                //Debug.Log("move up");
                 direction = Vector3.forward;
             }
             else
             {
                 // move down
-                Debug.Log("move down");
+                //Debug.Log("move down");
                 direction = Vector3.back;
             }
         }
@@ -154,13 +156,13 @@ public class NewEnemyMovement : MonoBehaviour
             if (transform.position.z < closestPlayer.position.z)
             {
                 // move up
-                Debug.Log("move up");
+                //Debug.Log("move up");
                 direction = Vector3.forward;
             }
             else
             {
                 // move down
-                Debug.Log("move down");
+                //Debug.Log("move down");
                 direction = Vector3.back;
             }
         }
@@ -170,16 +172,16 @@ public class NewEnemyMovement : MonoBehaviour
     private IEnumerator Attack()
     {
         attacking = true;
-        Debug.Log("Start attacking");
-        while (true)
+        //Debug.Log("Start attacking");
+        while (attacking)
         {
             yield return new WaitForSeconds(attackCooldownDuration / 2);
             // attack player
-            if (PlayerStillInRange(moveDirection))
+            if (attacking = PlayerStillInRange(moveDirection))
             {
                 // player hasn't moved
-                closestPlayer.gameObject.GetComponent<Inventory>().TakeDamage(5);
-                Debug.Log("attacked");
+                closestPlayer.gameObject.GetComponent<PlayerData>().TakeDamage(5);
+                //Debug.Log("attacked");
             }
             // cooldown
             yield return new WaitForSeconds(attackCooldownDuration/2);
@@ -321,6 +323,8 @@ public class NewEnemyMovement : MonoBehaviour
                 nextAction = NextAction.Attack;
                 // player is in the way
                 // attack
+
+                Debug.Log("both");
             }
 
         }
@@ -330,6 +334,7 @@ public class NewEnemyMovement : MonoBehaviour
             nextAction = NextAction.AlignmentMove;
             // move to the relative right
             alignmentMoveDirection = relativeRight;
+            Debug.Log("Left");
         }
         else if (rightHit)
         {
@@ -337,12 +342,13 @@ public class NewEnemyMovement : MonoBehaviour
             nextAction = NextAction.AlignmentMove;
             // move to the relative left
             alignmentMoveDirection = relativeLeft;
+            Debug.Log("right");
         }
         else
         {
             // make a normal move
             nextAction = NextAction.NormalMove;
+            Debug.Log("neither");
         }
-
     }
 }

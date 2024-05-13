@@ -17,6 +17,9 @@ public class ItemStats : ScriptableObject
     [Tooltip("the function of the item")]
     [SerializeField] private ItemFunction function;
 
+    [Tooltip("Determines if the object adds is breakable")]
+    [SerializeField] private bool breakable;
+
     [Tooltip("Increases percent of damage reduced")]
     [SerializeField] private bool armorStrength;
 
@@ -66,6 +69,8 @@ public class ItemStats : ScriptableObject
     [Tooltip("Determines if the object adds a potion")]
     [SerializeField] private int addsPotion;
 
+    
+
     public string ItemName
     {
         get { return itemName; } 
@@ -74,6 +79,11 @@ public class ItemStats : ScriptableObject
     public ItemFunction Function
     {
         get { return function; }
+    }
+
+    public bool Breakable
+    {
+        get { return breakable; }
     }
 
     public bool ArmorStrength
@@ -135,7 +145,7 @@ public class ItemStats : ScriptableObject
 
     public int AddsKey
     {
-        get { return AddsKey; }
+        get { return addsKey; }
     }
 
     public int AddsPotion

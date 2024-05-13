@@ -16,23 +16,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveForward = Vector3.forward;
 
     private bool meleeOnCooldown = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private IEnumerator Move(Vector3 direction)
     {
 
         Transform objectInWay = DetectInDirection(direction);
-        if (objectInWay == null)
+        if (objectInWay == null || objectInWay.CompareTag("Item"))
         {
 
             if (!moving)
@@ -100,6 +89,14 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Move(Vector3.back));
             nextMoveDir = Vector3.forward;
         }
+        if (GUILayout.Button("Shoot"))
+        {
+            GetComponent<PlayerData>().Shoot(Vector3.forward);
+        }
+        if (GUILayout.Button("Potion"))
+        {
+            GetComponent<PlayerData>().ActivatePotion();
+        }
     }
 
     private IEnumerator MeleeAttack(GameObject enemy)
@@ -107,7 +104,7 @@ public class PlayerController : MonoBehaviour
         if (!meleeOnCooldown)
         {
             meleeOnCooldown = !meleeOnCooldown;
-            enemy.GetComponent<EnemyMovement>().TakeDamage();
+            enemy.GetComponent<Enemy>().TakeDamage(1);
             yield return new WaitForSeconds(1);
             meleeOnCooldown = !meleeOnCooldown;
 

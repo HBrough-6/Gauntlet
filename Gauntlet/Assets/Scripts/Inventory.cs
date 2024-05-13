@@ -13,20 +13,20 @@ public enum ItemType
 public class Inventory : MonoBehaviour
 {
     private int maxItemsInInventory = 5;
-    private int currentNumItemsInInventory = 0;
-    private int numKeys = 0;
-    private int numPotions = 0;
+    [SerializeField] private int currentNumItemsInInventory = 0;
+    [SerializeField] private int numKeys = 0;
+    [SerializeField] private int numPotions = 0;
 
     private ItemStats[] upgradePotions = new ItemStats[6];
+    private int numUpgradePotions = 0;
+   
 
-    [SerializeField] private int health = 2000;
-
-    public bool AddKey(int numKeys)
+    public bool AddKey(int keys)
     {
         if (currentNumItemsInInventory < maxItemsInInventory)
         {
-            currentNumItemsInInventory++;
-            numKeys++;
+            currentNumItemsInInventory += keys;
+            numKeys += keys;
             return true;
         }
         return false;
@@ -36,8 +36,8 @@ public class Inventory : MonoBehaviour
     {
         if (currentNumItemsInInventory < maxItemsInInventory)
         {
-            currentNumItemsInInventory++;
-            numPotions++;
+            currentNumItemsInInventory += numPots;
+            numPotions += numPots;
             return true;
         }
         return false;
@@ -47,22 +47,13 @@ public class Inventory : MonoBehaviour
     {
         if (currentNumItemsInInventory < maxItemsInInventory)
         {
-                upgradePotions[upgradePotions.Length] = potion;
-                currentNumItemsInInventory++;
+            upgradePotions[numUpgradePotions] = potion;
+            currentNumItemsInInventory++;
+            numUpgradePotions++;
+            CheckPotionStats();
         }
         return false;
     }
-
-    public void IncreaseHealth(int HealthAmount)
-    {
-        health += HealthAmount;
-    }
-
-    public void TakeDamage(int DamageAmount)
-    {
-        health -= DamageAmount;
-    }
-
 
 
     public bool UseItem(ItemType type)
@@ -86,5 +77,55 @@ public class Inventory : MonoBehaviour
             default:
                 return false;
         }
+    }
+
+    public void CheckPotionStats()
+    {
+        bool[] stats = { false, false, false, false, false, false, false, false, false, false };
+        for (int i = 0; i < upgradePotions.Length && upgradePotions[i] != null; i++)
+        {
+            if (upgradePotions[i].ArmorStrength)
+            {
+                stats[0] = true;
+            }
+            if (upgradePotions[i].ShotStrength)
+            {
+                stats[1] = true;
+            }
+            if (upgradePotions[i].ShotTravelSpeed)
+            {
+                stats[2] = true;
+            }
+            if (upgradePotions[i].MagicVMonster)
+            {
+                stats[3] = true;
+            }
+            if (upgradePotions[i].MagicVGenerator)
+            {
+                stats[4] = true;
+            }
+            if (upgradePotions[i].PotionShotVMonster)
+            {
+                stats[5] = true;
+            }
+            if (upgradePotions[i].PotionShotVGenerator)
+            {
+                stats[6] = true;
+            }
+            if (upgradePotions[i].MeleeVMonsters)
+            {
+                stats[7] = true;
+            }
+            if (upgradePotions[i].MeleeVGenerators)
+            {
+                stats[8] = true;
+            }
+            if (upgradePotions[i].RunningSpeed)
+            {
+                stats[9] = true;
+            }
+        }
+
+        transform.GetComponent<PlayerData>().AssignUpgrades(stats);
     }
 }

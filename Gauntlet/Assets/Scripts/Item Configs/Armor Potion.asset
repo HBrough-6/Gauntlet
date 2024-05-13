@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Armor Potion
   function: 1
+  breakable: 1
   armorStrength: 1
-  shotStrength: 0
-  shotTravelSpeed: 0
-  magicVMonster: 0
-  magicVGenerator: 0
-  potionShotVMonster: 0
-  potionShotVGenerator: 0
-  meleeVMonsters: 0
-  meleeVGenerators: 0
-  runningSpeed: 0
+  shotStrength: 1
+  shotTravelSpeed: 1
+  magicVMonster: 1
+  magicVGenerator: 1
+  potionShotVMonster: 1
+  potionShotVGenerator: 1
+  meleeVMonsters: 1
+  meleeVGenerators: 1
+  runningSpeed: 1
   healthIncrease: 0
   addsKey: 0
   addsPotion: 0

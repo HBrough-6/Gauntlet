@@ -269,18 +269,9 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        /*if (canAttack)
-        {
-            Debug.Log("ATTACK");
-            canAttack = false;
-            yield return new WaitForSeconds(3);
-            canAttack = true;
-        }*/
-
         while (canAttack && attackTarget != null)
         {
-            Debug.Log("ATTACK");
-            attackTarget.GetComponent<Inventory>().TakeDamage(5);
+            attackTarget.GetComponent<PlayerData>().TakeDamage(10);
             yield return new WaitForSeconds(3);
         }
 

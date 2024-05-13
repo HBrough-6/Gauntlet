@@ -8,7 +8,9 @@ public class Item : MonoBehaviour
     [SerializeField] private string ItemName;
 
     [Tooltip("What the Item will do")]
-    [SerializeField] private ItemStats itemStats;
+    [SerializeField] public ItemStats itemStats;
+
+    private bool activated = false;
 
     private void Awake()
     {
@@ -20,15 +22,45 @@ public class Item : MonoBehaviour
         switch (itemStats.Function)
         {
             case ItemFunction.OtherItem:
-                inventory.AddKey(itemStats.AddsKey);
-                inventory.AddPotion(itemStats.AddsPotion);
-                inventory.IncreaseHealth(itemStats.HealthIncrease);
+
+                int keyAmount = itemStats.AddsKey;
+                int potionAmount = itemStats.AddsPotion;
+
+                inventory.AddKey(keyAmount);
+                inventory.AddPotion(potionAmount);
+                inventory.transform.GetComponent<PlayerData>().IncreaseHealth(itemStats.HealthIncrease);
                 break;
             case ItemFunction.UpgradePotion:
                 inventory.AddUpgradePotion(itemStats);
                 break;
             default:
                 break;
+        }
+    }
+
+    public void PlayerShot(PlayerData player)
+    {
+        if (itemStats.AddsPotion > 0)
+            player.PotionShot();
+    }
+
+    public void EnemyShot()
+    {
+        if (itemStats.AddsPotion > 0)
+            Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && !activated)
+        {
+            activated = true;
+            Activate(other.GetComponent<Inventory>());
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Projectile"))
+        {
+            Destroy(gameObject);
         }
     }
 }

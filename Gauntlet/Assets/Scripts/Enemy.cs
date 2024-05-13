@@ -11,9 +11,12 @@ public class Enemy : MonoBehaviour
     public int score;
 
 
-    private void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        //
+        if ((enemyLevel -= damage) <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetLevel()

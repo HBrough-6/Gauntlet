@@ -96,7 +96,7 @@ public class StatConfig : ScriptableObject, IStats
 
     public float ShotStrength
     {
-        get { return armorStrength; }
+        get { return shotStrength; }
     }
 
     public float ShotTravelSpeed

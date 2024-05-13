@@ -15,12 +15,12 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 43
-    width: 3440
-    height: 1349
+    y: 43.2
+    width: 1536
+    height: 772.8
   m_ShowMode: 4
-  m_Title: Project
-  m_RootView: {fileID: 8}
+  m_Title: Scene
+  m_RootView: {fileID: 5}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
@@ -33,23 +33,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
   m_EditorClassIdentifier: 
-  m_Children: []
+  m_Children:
+  - {fileID: 8}
   m_Position:
     serializedVersion: 2
-    x: 2294
-    y: 0
-    width: 1146
-    height: 529
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
-  m_Panes:
-  - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 0
+    x: 0
+    y: 30
+    width: 1536
+    height: 722.8
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 1
+  controlID: 5094
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -59,22 +57,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: SceneHierarchyWindow
   m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 7}
-  - {fileID: 2}
+  m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 770
-    width: 3440
-    height: 529
-  m_MinSize: {x: 200, y: 50}
-  m_MaxSize: {x: 16192, y: 8096}
-  vertical: 0
-  controlID: 162
+    y: 0
+    width: 182.4
+    height: 722.8
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 13}
+  m_Panes:
+  - {fileID: 13}
+  m_Selected: 0
+  m_LastSelected: 0
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -90,95 +89,18 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 642
+    x: 182.4
     y: 0
-    width: 510
-    height: 770
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 16}
+    width: 300.80002
+    height: 722.8
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 14}
   m_Panes:
-  - {fileID: 16}
+  - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &5
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 11}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 30
-    width: 3440
-    height: 1299
-  m_MinSize: {x: 300, y: 100}
-  m_MaxSize: {x: 24288, y: 16192}
-  vertical: 0
-  controlID: 52
---- !u!114 &6
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 642
-    height: 770
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 17}
-  m_Panes:
-  - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &7
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 2294
-    height: 529
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 15}
-  m_Panes:
-  - {fileID: 15}
-  - {fileID: 20}
-  m_Selected: 0
-  m_LastSelected: 1
---- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,22 +113,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 9}
-  - {fileID: 5}
-  - {fileID: 10}
+  - {fileID: 6}
+  - {fileID: 2}
+  - {fileID: 7}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 3440
-    height: 1349
+    width: 1536
+    height: 772.8
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &9
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,12 +145,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 3440
+    width: 1536
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &10
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,12 +166,12 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 1329
-    width: 3440
+    y: 752.8
+    width: 1536
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &11
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,19 +184,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 12}
   - {fileID: 3}
+  - {fileID: 4}
+  - {fileID: 9}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 3440
-    height: 1299
+    width: 1536
+    height: 722.8
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
-  vertical: 1
-  controlID: 53
---- !u!114 &12
+  vertical: 0
+  controlID: 5095
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,20 +210,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 6}
-  - {fileID: 4}
-  - {fileID: 13}
+  - {fileID: 10}
+  - {fileID: 11}
   m_Position:
     serializedVersion: 2
-    x: 0
+    x: 483.2
     y: 0
-    width: 3440
-    height: 770
-  m_MinSize: {x: 300, y: 50}
-  m_MaxSize: {x: 24288, y: 8096}
-  vertical: 0
-  controlID: 54
---- !u!114 &13
+    width: 1052.8
+    height: 722.8
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 5096
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,1766 +237,19 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1152
+    x: 0
     y: 0
-    width: 2288
-    height: 770
+    width: 1052.8
+    height: 368
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 15}
   m_Panes:
-  - {fileID: 18}
-  - {fileID: 14}
+  - {fileID: 15}
+  - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &14
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Test Runner
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 726
-    y: 81
-    width: 992
-    height: 743
-  m_SerializedDataModeController:
-    m_DataMode: 0
-    m_PreferredDataMode: 0
-    m_SupportedDataModes: 
-    isAutomatic: 1
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_OverlaysVisible: 1
-  m_Spl:
-    ID: 1638
-    splitterInitialOffset: 0
-    currentActiveSplitter: -1
-    realSizes:
-    - 505
-    - 168
-    relativeSizes:
-    - 0.75
-    - 0.25
-    minSizes:
-    - 32
-    - 32
-    maxSizes:
-    - 0
-    - 0
-    lastTotalSize: 673
-    splitSize: 6
-    xOffset: 0
-    m_Version: 1
-    oldRealSizes: 
-    oldMinSizes: 
-    oldMaxSizes: 
-    oldSplitSize: 0
-  m_TestTypeToolbarIndex: 0
-  m_PlayModeTestListGUI:
-    m_Window: {fileID: 14}
-    m_NewResultList:
-    - id: 1004
-      uniqueId: '[unittest_lab][suite]'
-      name: unittest_lab
-      fullName: unittest_lab
-      resultStatus: 0
-      duration: 0.8393373
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 
-      parentUniqueId: 
-    - id: 1010
-      uniqueId: '[Tests][C:/unityprojects_ar/unittest_lab/Library/ScriptAssemblies/Tests.dll][suite]'
-      name: Tests.dll
-      fullName: C:/unityprojects_ar/unittest_lab/Library/ScriptAssemblies/Tests.dll
-      resultStatus: 0
-      duration: 0.8227784
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1000
-      parentUniqueId: '[unittest_lab][suite]'
-    - id: 1001
-      uniqueId: Tests.dll/[Tests][TestSuite2][suite]
-      name: TestSuite2
-      fullName: TestSuite2
-      resultStatus: 0
-      duration: 0.7956238
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1010
-      parentUniqueId: '[Tests][C:/unityprojects_ar/unittest_lab/Library/ScriptAssemblies/Tests.dll][suite]'
-    - id: 1004
-      uniqueId: Tests.dll/TestSuite2/[Tests][TestSuite2.AsteroidsMoveDown]
-      name: AsteroidsMoveDown
-      fullName: TestSuite2.AsteroidsMoveDown
-      resultStatus: 0
-      duration: 0.26056
-      messages: 
-      output: 'There can be only one active Event System.
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 audio listeners in the scene. Please ensure
-        there is always exactly one audio listener in the scene.
-
-        There are
-        2 event systems in the scene. Please ensure there is always exactly one event
-        system in the scene
-
-        There are 2 audio listeners in the scene. Please
-        ensure there is always exactly one audio listener in the scene.
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite2][suite]
-    - id: 1009
-      uniqueId: Tests.dll/TestSuite2/[Tests][TestSuite2.DoesDestroyedAsteroidRaiseScore]
-      name: DoesDestroyedAsteroidRaiseScore
-      fullName: TestSuite2.DoesDestroyedAsteroidRaiseScore
-      resultStatus: 0
-      duration: 0.1204768
-      messages: 
-      output: 'There are 2 audio listeners in the scene. Please ensure there is always
-        exactly one audio listener in the scene.
-
-        There are 2 event systems
-        in the scene. Please ensure there is always exactly one event system in the
-        scene
-
-        There are 2 audio listeners in the scene. Please ensure there
-        is always exactly one audio listener in the scene.
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 audio listeners in the
-        scene. Please ensure there is always exactly one audio listener in the scene.
-
-        There
-        are 2 event systems in the scene. Please ensure there is always exactly one
-        event system in the scene
-
-        There are 2 audio listeners in the scene.
-        Please ensure there is always exactly one audio listener in the scene.
-
-        There
-        are 2 event systems in the scene. Please ensure there is always exactly one
-        event system in the scene
-
-        There are 2 audio listeners in the scene.
-        Please ensure there is always exactly one audio listener in the scene.
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite2][suite]
-    - id: 1005
-      uniqueId: Tests.dll/TestSuite2/[Tests][TestSuite2.GameOverOccursOnAsteroidCollision]
-      name: GameOverOccursOnAsteroidCollision
-      fullName: TestSuite2.GameOverOccursOnAsteroidCollision
-      resultStatus: 0
-      duration: 0.1176364
-      messages: 
-      output: 'There are 2 audio listeners in the scene. Please ensure there is always
-        exactly one audio listener in the scene.
-
-        There are 2 event systems
-        in the scene. Please ensure there is always exactly one event system in the
-        scene
-
-        There are 2 audio listeners in the scene. Please ensure there
-        is always exactly one audio listener in the scene.
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite2][suite]
-    - id: 1008
-      uniqueId: Tests.dll/TestSuite2/[Tests][TestSuite2.LaserDestroyAsteroid]
-      name: LaserDestroyAsteroid
-      fullName: TestSuite2.LaserDestroyAsteroid
-      resultStatus: 0
-      duration: 0.1211638
-      messages: 
-      output: 'There are 2 audio listeners in the scene. Please ensure there is always
-        exactly one audio listener in the scene.
-
-        There are 2 event systems
-        in the scene. Please ensure there is always exactly one event system in the
-        scene
-
-        There are 2 audio listeners in the scene. Please ensure there
-        is always exactly one audio listener in the scene.
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite2][suite]
-    - id: 1007
-      uniqueId: Tests.dll/TestSuite2/[Tests][TestSuite2.LaserMovesUp]
-      name: LaserMovesUp
-      fullName: TestSuite2.LaserMovesUp
-      resultStatus: 0
-      duration: 0.1191256
-      messages: 
-      output: 'There are 2 audio listeners in the scene. Please ensure there is always
-        exactly one audio listener in the scene.
-
-        There are 2 event systems
-        in the scene. Please ensure there is always exactly one event system in the
-        scene
-
-        There are 2 audio listeners in the scene. Please ensure there
-        is always exactly one audio listener in the scene.
-
-        There are 2 event
-        systems in the scene. Please ensure there is always exactly one event system
-        in the scene
-
-        There are 2 audio listeners in the scene. Please ensure
-        there is always exactly one audio listener in the scene.
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 audio listeners in
-        the scene. Please ensure there is always exactly one audio listener in the
-        scene.
-
-        There are 2 event systems in the scene. Please ensure there
-        is always exactly one event system in the scene
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite2][suite]
-    - id: 1006
-      uniqueId: Tests.dll/TestSuite2/[Tests][TestSuite2.NewGameRestartsGame]
-      name: NewGameRestartsGame
-      fullName: TestSuite2.NewGameRestartsGame
-      resultStatus: 0
-      duration: 0.019431
-      messages: 
-      output: 'There are 2 audio listeners in the scene. Please ensure there is always
-        exactly one audio listener in the scene.
-
-        There are 2 event systems
-        in the scene. Please ensure there is always exactly one event system in the
-        scene
-
-        There are 2 audio listeners in the scene. Please ensure there
-        is always exactly one audio listener in the scene.
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        Start SpawnCoroutine
-
-        There
-        are 2 audio listeners in the scene. Please ensure there is always exactly
-        one audio listener in the scene.
-
-        There are 2 event systems in the
-        scene. Please ensure there is always exactly one event system in the scene
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite2][suite]
-    - id: 1002
-      uniqueId: Tests.dll/TestSuite2/[Tests][TestSuite2.TestSuiteSimplePasses]
-      name: TestSuiteSimplePasses
-      fullName: TestSuite2.TestSuiteSimplePasses
-      resultStatus: 0
-      duration: 0.0026598
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite2][suite]
-    - id: 1003
-      uniqueId: Tests.dll/TestSuite2/[Tests][TestSuite2.TestSuiteWithEnumeratorPasses]
-      name: TestSuiteWithEnumeratorPasses
-      fullName: TestSuite2.TestSuiteWithEnumeratorPasses
-      resultStatus: 0
-      duration: 0.0130096
-      messages: 
-      output: 'There are 2 audio listeners in the scene. Please ensure there is always
-        exactly one audio listener in the scene.
-
-        There are 2 event systems
-        in the scene. Please ensure there is always exactly one event system in the
-        scene
-
-        There are 2 audio listeners in the scene. Please ensure there
-        is always exactly one audio listener in the scene.
-
-        There are 2 audio
-        listeners in the scene. Please ensure there is always exactly one audio listener
-        in the scene.
-
-        There are 2 event systems in the scene. Please ensure
-        there is always exactly one event system in the scene
-
-        There are
-        2 audio listeners in the scene. Please ensure there is always exactly one
-        audio listener in the scene.
-
-        There are 2 event systems in the scene.
-        Please ensure there is always exactly one event system in the scene
-
-'
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite2][suite]
-    m_ResultText: TestSuite2 (0.796s)
-    m_ResultStacktrace: 
-    m_TestListState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 130d306d
-      m_LastClickedID: 1831865619
-      m_ExpandedIDs: 06980be49da14ce5130d306dffffff7f
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: 0
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 11
-        m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
-      m_SearchString: 
-    m_TestRunnerUIFilter:
-      PassedHidden: 0
-      FailedHidden: 0
-      NotRunHidden: 0
-      m_SearchString: 
-      selectedCategoryMask: 0
-      availableCategories:
-      - Uncategorized
-    m_SelectedOption: 0
-  m_EditModeTestListGUI:
-    m_Window: {fileID: 14}
-    m_NewResultList:
-    - id: 1000
-      uniqueId: '[unittest_lab][suite]'
-      name: unittest_lab
-      fullName: unittest_lab
-      resultStatus: 0
-      duration: 0.093605
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 
-      parentUniqueId: 
-    - id: 1004
-      uniqueId: '[Tests][C:/unityprojects_ar/unittest_lab/Library/ScriptAssemblies/Tests.dll][suite]'
-      name: Tests.dll
-      fullName: C:/unityprojects_ar/unittest_lab/Library/ScriptAssemblies/Tests.dll
-      resultStatus: 0
-      duration: 0.068881
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1000
-      parentUniqueId: '[unittest_lab][suite]'
-    - id: 1001
-      uniqueId: Tests.dll/[Tests][TestSuite][suite]
-      name: TestSuite
-      fullName: TestSuite
-      resultStatus: 0
-      duration: 0.0670321
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1004
-      parentUniqueId: '[Tests][C:/unityprojects_ar/unittest_lab/Library/ScriptAssemblies/Tests.dll][suite]'
-    - id: 1004
-      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.AsteroidsMoveDown]
-      name: AsteroidsMoveDown
-      fullName: TestSuite.AsteroidsMoveDown
-      resultStatus: 0
-      duration: 0.0126457
-      messages: 'Unhandled log message: ''[Error] EditMode test can only yield null''.
-        Use UnityEngine.TestTools.LogAssert.Expect
-
-        TearDown : Unhandled
-        log message: ''[Error] Destroy may not be called from edit mode! Use DestroyImmediate
-        instead.
-
-        Destroying an object in edit mode destroys it permanently.''.
-        Use UnityEngine.TestTools.LogAssert.Expect'
-      output: 'EditMode test can only yield null
-
-        Destroy may not be called
-        from edit mode! Use DestroyImmediate instead.
-
-        Destroying an object
-        in edit mode destroys it permanently.
-
-'
-      stacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-        TestSuite:Teardown
-        () (at Assets/RW/Tests/TestSuite.cs:88)
-
-        System.Reflection.MethodBase:Invoke
-        (object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object)
-
-        UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-        ()
-
-
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
-    - id: 1009
-      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.DoesDestroyedAsteroidRaiseScore]
-      name: DoesDestroyedAsteroidRaiseScore
-      fullName: TestSuite.DoesDestroyedAsteroidRaiseScore
-      resultStatus: 0
-      duration: 0.0074706
-      messages: 'Unhandled log message: ''[Error] EditMode test can only yield null''.
-        Use UnityEngine.TestTools.LogAssert.Expect
-
-        TearDown : Unhandled
-        log message: ''[Error] Destroy may not be called from edit mode! Use DestroyImmediate
-        instead.
-
-        Destroying an object in edit mode destroys it permanently.''.
-        Use UnityEngine.TestTools.LogAssert.Expect'
-      output: 'EditMode test can only yield null
-
-        Destroy may not be called
-        from edit mode! Use DestroyImmediate instead.
-
-        Destroying an object
-        in edit mode destroys it permanently.
-
-'
-      stacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-        TestSuite:Teardown
-        () (at Assets/RW/Tests/TestSuite.cs:88)
-
-        System.Reflection.MethodBase:Invoke
-        (object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object)
-
-        UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-        ()
-
-
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
-    - id: 1005
-      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.GameOverOccursOnAsteroidCollision]
-      name: GameOverOccursOnAsteroidCollision
-      fullName: TestSuite.GameOverOccursOnAsteroidCollision
-      resultStatus: 0
-      duration: 0.0077325
-      messages: 'Unhandled log message: ''[Error] EditMode test can only yield null''.
-        Use UnityEngine.TestTools.LogAssert.Expect
-
-        TearDown : Unhandled
-        log message: ''[Error] Destroy may not be called from edit mode! Use DestroyImmediate
-        instead.
-
-        Destroying an object in edit mode destroys it permanently.''.
-        Use UnityEngine.TestTools.LogAssert.Expect'
-      output: 'EditMode test can only yield null
-
-        Destroy may not be called
-        from edit mode! Use DestroyImmediate instead.
-
-        Destroying an object
-        in edit mode destroys it permanently.
-
-'
-      stacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-        TestSuite:Teardown
-        () (at Assets/RW/Tests/TestSuite.cs:88)
-
-        System.Reflection.MethodBase:Invoke
-        (object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object)
-
-        UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-        ()
-
-
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
-    - id: 1008
-      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.LaserDestroyAsteroid]
-      name: LaserDestroyAsteroid
-      fullName: TestSuite.LaserDestroyAsteroid
-      resultStatus: 0
-      duration: 0.0062375
-      messages: 'Unhandled log message: ''[Error] EditMode test can only yield null''.
-        Use UnityEngine.TestTools.LogAssert.Expect
-
-        TearDown : Unhandled
-        log message: ''[Error] Destroy may not be called from edit mode! Use DestroyImmediate
-        instead.
-
-        Destroying an object in edit mode destroys it permanently.''.
-        Use UnityEngine.TestTools.LogAssert.Expect'
-      output: 'EditMode test can only yield null
-
-        Destroy may not be called
-        from edit mode! Use DestroyImmediate instead.
-
-        Destroying an object
-        in edit mode destroys it permanently.
-
-'
-      stacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-        TestSuite:Teardown
-        () (at Assets/RW/Tests/TestSuite.cs:88)
-
-        System.Reflection.MethodBase:Invoke
-        (object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object)
-
-        UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-        ()
-
-
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
-    - id: 1007
-      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.LaserMovesUp]
-      name: LaserMovesUp
-      fullName: TestSuite.LaserMovesUp
-      resultStatus: 0
-      duration: 0.0088545
-      messages: 'Unhandled log message: ''[Error] EditMode test can only yield null''.
-        Use UnityEngine.TestTools.LogAssert.Expect
-
-        TearDown : Unhandled
-        log message: ''[Error] Destroy may not be called from edit mode! Use DestroyImmediate
-        instead.
-
-        Destroying an object in edit mode destroys it permanently.''.
-        Use UnityEngine.TestTools.LogAssert.Expect'
-      output: 'EditMode test can only yield null
-
-        Destroy may not be called
-        from edit mode! Use DestroyImmediate instead.
-
-        Destroying an object
-        in edit mode destroys it permanently.
-
-'
-      stacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-        TestSuite:Teardown
-        () (at Assets/RW/Tests/TestSuite.cs:88)
-
-        System.Reflection.MethodBase:Invoke
-        (object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object)
-
-        UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-        ()
-
-
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
-    - id: 1006
-      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.NewGameRestartsGame]
-      name: NewGameRestartsGame
-      fullName: TestSuite.NewGameRestartsGame
-      resultStatus: 0
-      duration: 0.0055736
-      messages: 'Unhandled log message: ''[Assert] Assertion failed on expression:
-        ''ShouldRunBehaviour()''''. Use UnityEngine.TestTools.LogAssert.Expect
-
-        TearDown
-        : Unhandled log message: ''[Error] Destroy may not be called from edit mode!
-        Use DestroyImmediate instead.
-
-        Destroying an object in edit mode
-        destroys it permanently.''. Use UnityEngine.TestTools.LogAssert.Expect'
-      output: 'Assertion failed on expression: ''ShouldRunBehaviour()''
-
-        Assertion
-        failed on expression: ''ShouldRunBehaviour()''
-
-        Start SpawnCoroutine
-
-        Destroy
-        may not be called from edit mode! Use DestroyImmediate instead.
-
-        Destroying
-        an object in edit mode destroys it permanently.
-
-'
-      stacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-        TestSuite:Teardown
-        () (at Assets/RW/Tests/TestSuite.cs:88)
-
-        System.Reflection.MethodBase:Invoke
-        (object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object)
-
-        UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-        ()
-
-
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
-    - id: 1002
-      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.TestSuiteSimplePasses]
-      name: TestSuiteSimplePasses
-      fullName: TestSuite.TestSuiteSimplePasses
-      resultStatus: 0
-      duration: 0.0014403
-      messages: 'TearDown : Unhandled log message: ''[Error] Destroy may not be called
-        from edit mode! Use DestroyImmediate instead.
-
-        Destroying an object
-        in edit mode destroys it permanently.''. Use UnityEngine.TestTools.LogAssert.Expect'
-      output: 'Destroy may not be called from edit mode! Use DestroyImmediate instead.
-
-        Destroying
-        an object in edit mode destroys it permanently.
-
-'
-      stacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-        TestSuite:Teardown
-        () (at Assets/RW/Tests/TestSuite.cs:88)
-
-        System.Reflection.MethodBase:Invoke
-        (object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object)
-
-        UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-        ()
-
-
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
-    - id: 1003
-      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.TestSuiteWithEnumeratorPasses]
-      name: TestSuiteWithEnumeratorPasses
-      fullName: TestSuite.TestSuiteWithEnumeratorPasses
-      resultStatus: 0
-      duration: 0.007225
-      messages: 'TearDown : Unhandled log message: ''[Error] Destroy may not be called
-        from edit mode! Use DestroyImmediate instead.
-
-        Destroying an object
-        in edit mode destroys it permanently.''. Use UnityEngine.TestTools.LogAssert.Expect'
-      output: 'Destroy may not be called from edit mode! Use DestroyImmediate instead.
-
-        Destroying
-        an object in edit mode destroys it permanently.
-
-'
-      stacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-        TestSuite:Teardown
-        () (at Assets/RW/Tests/TestSuite.cs:88)
-
-        System.Reflection.MethodBase:Invoke
-        (object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object,object[])
-
-        NUnit.Framework.Internal.Reflect:InvokeMethod
-        (System.Reflection.MethodInfo,object)
-
-        UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-        ()
-
-
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
-    m_ResultText: 
-    m_ResultStacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-      TestSuite:Teardown
-      () (at Assets/RW/Tests/TestSuite.cs:88)
-
-      System.Reflection.MethodBase:Invoke
-      (object,object[])
-
-      NUnit.Framework.Internal.Reflect:InvokeMethod (System.Reflection.MethodInfo,object,object[])
-
-      NUnit.Framework.Internal.Reflect:InvokeMethod
-      (System.Reflection.MethodInfo,object)
-
-      UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-      ()
-
-
-
-'
-    m_TestListState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b547f298
-      m_LastClickedID: -1728952395
-      m_ExpandedIDs: 06980be49da14ce545dca17bffffff7f
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: 0
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 11
-        m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
-      m_SearchString: 
-    m_TestRunnerUIFilter:
-      PassedHidden: 0
-      FailedHidden: 0
-      NotRunHidden: 0
-      m_SearchString: 
-      selectedCategoryMask: 0
-      availableCategories:
-      - Uncategorized
---- !u!114 &15
+  m_LastSelected: 1
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2083,22 +258,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: ProjectBrowser
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 368
+    width: 1052.8
+    height: 354.8
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 16}
+  m_Panes:
+  - {fileID: 16}
+  - {fileID: 17}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Project
-    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000,
+    m_Text: Game
+    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 843
-    width: 2293
-    height: 508
+    x: 483.2
+    y: 73.6
+    width: 1051.8
+    height: 347
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -2109,119 +311,135 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  m_SearchFilter:
-    m_NameFilter: 
-    m_ClassNames: []
-    m_AssetLabels: []
-    m_AssetBundleNames: []
-    m_ReferencingInstanceIDs: 
-    m_SceneHandles: 
-    m_ShowAllHits: 0
-    m_SkipHidden: 0
-    m_SearchArea: 1
-    m_Folders:
-    - Assets/Scripts
-    m_Globs: []
-    m_OriginalText: 
-    m_ImportLogFlags: 0
-    m_FilterByTypeIntersection: 0
-  m_ViewMode: 1
-  m_StartGridSize: 64
-  m_LastFolders:
-  - Assets/Scripts
-  m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\hbrough\Documents\GitHub\Gauntlet\Gauntlet
-  m_LockTracker:
-    m_IsLocked: 0
-  m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1e6e0000
-    m_LastClickedID: 28190
-    m_ExpandedIDs: 000000001c6e000000ca9a3b
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 7}
-    m_SearchString: 
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-  m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 00000000
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
-    m_SearchString: 
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-  m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000
-    m_RenameOverlay:
-      m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
-      m_EditFieldRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      m_UserData: 0
-      m_IsWaitingForDelay: 0
-      m_IsRenaming: 0
-      m_OriginalEventType: 11
-      m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 7}
-    m_CreateAssetUtility:
-      m_EndAction: {fileID: 0}
-      m_InstanceID: 0
-      m_Path: 
-      m_Icon: {fileID: 0}
-      m_ResourceFile: 
-    m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 64
-  m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 207
---- !u!114 &16
+  m_SerializedViewNames: []
+  m_SerializedViewValues: []
+  m_PlayModeViewName: GameView
+  m_ShowGizmos: 0
+  m_TargetDisplay: 0
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetSize: {x: 580, y: 326}
+  m_TextureFilterMode: 0
+  m_TextureHideFlags: 61
+  m_RenderIMGUI: 1
+  m_EnterPlayModeBehavior: 0
+  m_UseMipMap: 0
+  m_VSyncEnabled: 0
+  m_Gizmos: 0
+  m_Stats: 0
+  m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_ZoomArea:
+    m_HRangeLocked: 0
+    m_VRangeLocked: 0
+    hZoomLockedByDefault: 0
+    vZoomLockedByDefault: 0
+    m_HBaseRangeMin: -232
+    m_HBaseRangeMax: 232
+    m_VBaseRangeMin: -130.40001
+    m_VBaseRangeMax: 130.40001
+    m_HAllowExceedBaseRangeMin: 1
+    m_HAllowExceedBaseRangeMax: 1
+    m_VAllowExceedBaseRangeMin: 1
+    m_VAllowExceedBaseRangeMax: 1
+    m_ScaleWithWindow: 0
+    m_HSlider: 0
+    m_VSlider: 0
+    m_IgnoreScrollWheelUntilClicked: 0
+    m_EnableMouseInput: 0
+    m_EnableSliderZoomHorizontal: 0
+    m_EnableSliderZoomVertical: 0
+    m_UniformScale: 1
+    m_UpDirection: 1
+    m_DrawArea:
+      serializedVersion: 2
+      x: 0
+      y: 21
+      width: 1051.8
+      height: 326
+    m_Scale: {x: 1.25, y: 1.25}
+    m_Translation: {x: 525.9, y: 163}
+    m_MarginLeft: 0
+    m_MarginRight: 0
+    m_MarginTop: 0
+    m_MarginBottom: 0
+    m_LastShownAreaInsideMargins:
+      serializedVersion: 2
+      x: -420.72003
+      y: -130.4
+      width: 841.44006
+      height: 260.8
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 1314.75, y: 433.75}
+  m_ClearInEditMode: 1
+  m_NoCameraWarning: 1
+  m_LowResolutionForAspectRatios: 01000000000000000000
+  m_XRRenderMode: 0
+  m_RenderTexture: {fileID: 0}
+--- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Hierarchy
+    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73.6
+    width: 181.4
+    height: 701.8
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_SceneHierarchy:
+    m_TreeViewState:
+      scrollPos: {x: 0, y: 32}
+      m_SelectedIDs: 9683f0ff
+      m_LastClickedID: -1014890
+      m_ExpandedIDs: 28fbfffff4ffffff90730000be730000648200002e860000e08600006c8c0000e091000082aa0000
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_ExpandedScenes: []
+    m_CurrenRootInstanceID: 0
+    m_LockTracker:
+      m_IsLocked: 0
+    m_CurrentSortingName: TransformSorting
+  m_WindowGUID: 4c969a2b90040154d917609493e03593
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2237,15 +455,15 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
-    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 642
-    y: 73
-    width: 508
-    height: 749
+    x: 182.40001
+    y: 73.6
+    width: 298.80002
+    height: 701.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -2269,71 +487,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &17
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Hierarchy
-    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000,
-      type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 73
-    width: 641
-    height: 749
-  m_SerializedDataModeController:
-    m_DataMode: 0
-    m_PreferredDataMode: 0
-    m_SupportedDataModes: 
-    isAutomatic: 1
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-    m_OverlaysVisible: 1
-  m_SceneHierarchy:
-    m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 68880000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 24fbfffffc6a0000286b0000906b00009e6b0000ac6b0000e06b0000166c0000
-      m_RenameOverlay:
-        m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
-        m_EditFieldRect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        m_UserData: 0
-        m_IsWaitingForDelay: 0
-        m_IsRenaming: 0
-        m_OriginalEventType: 11
-        m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 6}
-      m_SearchString: 
-    m_ExpandedScenes: []
-    m_CurrenRootInstanceID: 0
-    m_LockTracker:
-      m_IsLocked: 0
-    m_CurrentSortingName: TransformSorting
-  m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &18
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2349,15 +503,15 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: 8634526014445323508, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1152
-    y: 73
-    width: 2287
-    height: 749
+    x: 483.2
+    y: 73.6
+    width: 1051.8
+    height: 347
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -2372,7 +526,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -166, y: -26}
+      snapOffset: {x: -166, y: -26.399994}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
@@ -2385,9 +539,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -141, y: 149}
+      snapOffset: {x: -141, y: -198.19998}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
+      snapCorner: 3
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 1
@@ -2398,7 +552,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -2424,7 +578,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -2716,9 +870,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.2632316, y: 0.12745321, z: 0.7578169}
+    m_Target: {x: -5.013536, y: -0.84255123, z: -3.2952647}
     speed: 2
-    m_Value: {x: -1.2632316, y: 0.12745321, z: 0.7578169}
+    m_Value: {x: -5.013536, y: -0.84255123, z: -3.2952647}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2764,13 +918,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.32858288, y: -0.014494226, z: 0.004967223, w: 0.94445044}
+    m_Target: {x: -0.55020714, y: 0.026264962, z: -0.017372586, w: -0.83448994}
     speed: 2
-    m_Value: {x: 0.32855198, y: -0.014492863, z: 0.004966756, w: 0.9443616}
+    m_Value: {x: -0.553931, y: 0.026185287, z: -0.01748981, w: -0.8319669}
   m_Size:
-    m_Target: 2.3320816
+    m_Target: 4.739471
     speed: 2
-    m_Value: 2.3320816
+    m_Value: 4.739471
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -2795,7 +949,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &19
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2804,22 +958,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
-    m_Text: Game
-    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000,
+    m_Text: Project
+    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2294
-    y: 843
-    width: 1145
-    height: 508
+    x: 483.2
+    y: 441.6
+    width: 1051.8
+    height: 333.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -2830,71 +984,119 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  m_SerializedViewNames: []
-  m_SerializedViewValues: []
-  m_PlayModeViewName: GameView
-  m_ShowGizmos: 0
-  m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 866, y: 487}
-  m_TextureFilterMode: 0
-  m_TextureHideFlags: 61
-  m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
-  m_UseMipMap: 0
-  m_VSyncEnabled: 0
-  m_Gizmos: 0
-  m_Stats: 0
-  m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
-  m_ZoomArea:
-    m_HRangeLocked: 0
-    m_VRangeLocked: 0
-    hZoomLockedByDefault: 0
-    vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -433
-    m_HBaseRangeMax: 433
-    m_VBaseRangeMin: -243.5
-    m_VBaseRangeMax: 243.5
-    m_HAllowExceedBaseRangeMin: 1
-    m_HAllowExceedBaseRangeMax: 1
-    m_VAllowExceedBaseRangeMin: 1
-    m_VAllowExceedBaseRangeMax: 1
-    m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
-    m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
-    m_EnableSliderZoomHorizontal: 0
-    m_EnableSliderZoomVertical: 0
-    m_UniformScale: 1
-    m_UpDirection: 1
-    m_DrawArea:
-      serializedVersion: 2
-      x: 0
-      y: 21
-      width: 1145
-      height: 487
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 572.5, y: 243.5}
-    m_MarginLeft: 0
-    m_MarginRight: 0
-    m_MarginTop: 0
-    m_MarginBottom: 0
-    m_LastShownAreaInsideMargins:
-      serializedVersion: 2
-      x: -572.5
-      y: -243.5
-      width: 1145
-      height: 487
-    m_MinimalGUI: 1
-  m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1145, y: 508}
-  m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 01000000000000000000
-  m_XRRenderMode: 0
-  m_RenderTexture: {fileID: 0}
---- !u!114 &20
+  m_SearchFilter:
+    m_NameFilter: 
+    m_ClassNames: []
+    m_AssetLabels: []
+    m_AssetBundleNames: []
+    m_ReferencingInstanceIDs: 
+    m_SceneHandles: 
+    m_ShowAllHits: 0
+    m_SkipHidden: 0
+    m_SearchArea: 1
+    m_Folders:
+    - Assets/Scripts
+    m_Globs: []
+    m_OriginalText: 
+    m_ImportLogFlags: 0
+    m_FilterByTypeIntersection: 0
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Scripts
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\heath\Documents\GitHub\Gauntlet\Gauntlet
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 54af0000
+    m_LastClickedID: 44884
+    m_ExpandedIDs: 000000009cad000054af000000ca9a3b
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 11}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_AssetTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 000000009cad000000ca9a3b
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_ListAreaState:
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c6230000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 11}
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+    m_NewAssetIndexInList: -1
+    m_ScrollPosition: {x: 0, y: 0}
+    m_GridSize: 64
+  m_SkipHiddenPackages: 0
+  m_DirectoriesAreaWidth: 207
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2910,15 +1112,15 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
-    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 843
-    width: 2293
-    height: 508
+    x: 483.2
+    y: 441.6
+    width: 1051.8
+    height: 333.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
