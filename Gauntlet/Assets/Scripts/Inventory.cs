@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public enum ItemType
 {
@@ -16,9 +17,11 @@ public class Inventory : MonoBehaviour
     private int numKeys = 0;
     private int numPotions = 0;
 
-    private UpgradePotion[] upgradePotions = new UpgradePotion[6];
+    private ItemStats[] upgradePotions = new ItemStats[6];
 
-    public bool AddKey()
+    [SerializeField] private int health = 2000;
+
+    public bool AddKey(int numKeys)
     {
         if (currentNumItemsInInventory < maxItemsInInventory)
         {
@@ -29,7 +32,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
     
-    public bool AddPotion()
+    public bool AddPotion(int numPots)
     {
         if (currentNumItemsInInventory < maxItemsInInventory)
         {
@@ -40,43 +43,48 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    public bool AddUpgradePotion(UpgradePotion potion)
+    public bool AddUpgradePotion(ItemStats potion)
     {
         if (currentNumItemsInInventory < maxItemsInInventory)
         {
-            if (potion)
-            {
+                upgradePotions[upgradePotions.Length] = potion;
                 currentNumItemsInInventory++;
-            }
         }
         return false;
     }
+
+    public void IncreaseHealth(int HealthAmount)
+    {
+        health += HealthAmount;
+    }
+
+    public void TakeDamage(int DamageAmount)
+    {
+        health -= DamageAmount;
+    }
+
+
 
     public bool UseItem(ItemType type)
     {
-        if (true)
+        switch (type)
         {
-
+            case ItemType.Key:
+                if (numPotions > 0)
+                {
+                    numPotions--;
+                    return true;
+                }
+                return false;
+            case ItemType.Potion:
+                if (numKeys > 0)
+                {
+                    numKeys--;
+                    return true;
+                }
+                return false;
+            default:
+                return false;
         }
-    }
-
-    public bool activatePotion()
-    {
-        if (numPotions > 0)
-        {
-            numPotions--;
-            return true;
-        }
-        return false;
-    }
-
-    public bool UseKey()
-    {
-        if (numKeys > 0)
-        {
-            numKeys--;
-            return true;
-        }
-        return false;
     }
 }

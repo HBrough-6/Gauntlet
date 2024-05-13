@@ -2,33 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum itemFunction
-{
-    healthPickup,
-    potion,
-    ungradePotion,
-    key
-}
-
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory")]
 public class Item : MonoBehaviour
 {
     [Tooltip("Item name")]
-    private string ItemName;
+    [SerializeField] private string ItemName;
 
-    [Tooltip("How much health the item will restore")]
-    private int healthIncreaseAmount;
+    [Tooltip("What the Item will do")]
+    [SerializeField] private ItemStats itemStats;
 
-    private 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        ItemName = itemStats.ItemName;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Activate(Inventory inventory)
     {
-        
+        switch (itemStats.Function)
+        {
+            case ItemFunction.OtherItem:
+                inventory.AddKey(itemStats.AddsKey);
+                inventory.AddPotion(itemStats.AddsPotion);
+                inventory.IncreaseHealth(itemStats.HealthIncrease);
+                break;
+            case ItemFunction.UpgradePotion:
+                inventory.AddUpgradePotion(itemStats);
+                break;
+            default:
+                break;
+        }
     }
 }

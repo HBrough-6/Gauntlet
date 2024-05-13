@@ -18,6 +18,13 @@ public class EnemyMovement : MonoBehaviour
     public bool canAttack = false;
     private Vector3 moveForward = Vector3.forward;
 
+    private GameObject attackTarget;
+
+    private void Start()
+    {
+        StartCoroutine(Attack());
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -82,6 +89,8 @@ public class EnemyMovement : MonoBehaviour
         float zDif = Mathf.Abs(transform.position.z - playerTarget.transform.position.z);
 
         Vector3 direction = Vector3.zero;
+        if (canAttack)
+        {
 
             // the enemy is further away in the x axis
             if (xDif > zDif)
@@ -138,20 +147,24 @@ public class EnemyMovement : MonoBehaviour
                 direction = Vector3.back;
             }
         }
+        }
         bool hasNextMove = DoubleDetect(direction);
         if (canAttack)
         {
-            StartCoroutine(Attack());
+            Debug.Log(canAttack);
         }
         else
         {
             if (hasNextMove)
             {
                 StartCoroutine(Move(nextMove));
+                Debug.Log("has next move");
             }
             else
             {
                 StartCoroutine(Move(direction));
+                Debug.Log("has next move");
+
             }
         }
         
@@ -222,22 +235,26 @@ public class EnemyMovement : MonoBehaviour
 
         if (leftHit && rightHit)
         {
-            Debug.Log("can Attack");
             // reset next move since the raycast did not hit anything
             nextMove = new Vector3(0, -1, 0);
             canAttack = true;
+
+            attackTarget = hit.transform.gameObject;
             // attack
         }
         else if (leftHit)
         {
+            canAttack = false;
             nextMove = relativeRight;
         }
         else if (rightHit)
         {
+            canAttack = false;
             nextMove = relativeLeft;
         }
         else
         {
+            canAttack = false;
             // reset next move since the raycast did not hit anything
             nextMove = new Vector3(0, -1, 0);
         }
@@ -252,12 +269,19 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        if (canAttack)
+        /*if (canAttack)
         {
             Debug.Log("ATTACK");
             canAttack = false;
             yield return new WaitForSeconds(3);
             canAttack = true;
+        }*/
+
+        while (canAttack && attackTarget != null)
+        {
+            Debug.Log("ATTACK");
+            attackTarget.GetComponent<Inventory>().TakeDamage(5);
+            yield return new WaitForSeconds(3);
         }
 
     }
