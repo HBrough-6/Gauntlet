@@ -26,10 +26,14 @@ public class PlayerData : MonoBehaviour
     private int score;
     private bool projectileOnScreen = false;
 
+    
+
     private void Awake()
     {
         inventory = gameObject.AddComponent<Inventory>();
-        controller = gameObject.AddComponent<PlayerController>();
+        controller = gameObject.GetComponent<PlayerController>();
+
+        TempGameManager.Instance.AddPlayer(this);
     }
 
     public void IncreaseHealth(int HealthAmount)
@@ -148,7 +152,7 @@ public class PlayerData : MonoBehaviour
             }
             if (Random.Range(0, 1) < hitChance)
             {
-                // target.GetComponent<Generator>().TakeDamage(damage);
+                target.GetComponent<Generator>().TakeDamage(damage);
             }
             
         }

@@ -27,7 +27,7 @@ public class Generator : MonoBehaviour
 
     [SerializeField] private LevelManager levelManager;
 
-    private bool onScreen = false;
+    private bool onScreen = true;
 
     // Start is called before the first frame update
     void Awake()

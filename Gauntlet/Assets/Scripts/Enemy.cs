@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     {
         if ((level -= damage) <= 0)
         {
-            Destroy(gameObject);
+            ReturnToPool();
         }
     }
     
@@ -48,12 +48,6 @@ public class Enemy : MonoBehaviour
     public void SetPool(IObjectPool<Enemy> pool)
     {
         _enemyPool = pool;
-    }
-
-    private void OnEnable()
-    {
-        
-
     }
 
 

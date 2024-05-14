@@ -34,7 +34,7 @@ public class NewEnemyMovement : MonoBehaviour
 
     [SerializeField] private float attackCooldownDuration = 2;
 
-    private bool onScreen = false;
+    private bool onScreen = true;
 
     [SerializeField] private bool deathAttack = false;
 
