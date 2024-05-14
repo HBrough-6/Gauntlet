@@ -10,8 +10,6 @@ public class CameraController : Singleton<CameraController>
     public List<GameObject> GeneratorsOnScreen = new List<GameObject>();
 
     public List<Transform> players = new List<Transform>();
-
-
     private void GetCenterPoint()
     {
         Vector3 center = Vector3.zero;

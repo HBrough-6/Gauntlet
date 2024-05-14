@@ -15,6 +15,9 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     x: 0
     y: 43.2
     width: 1536
@@ -44,6 +47,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -94,8 +100,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
 =======
 >>>>>>> Alex
+=======
+>>>>>>> Heath
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: InspectorWindow
   m_EditorClassIdentifier: 
@@ -103,10 +112,14 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     x: 181.6
     y: 0
     width: 301.6
     height: 722.8
+<<<<<<< HEAD
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
 =======
@@ -167,12 +180,17 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
 >>>>>>> Alex
+=======
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> Heath
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &5
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 MonoBehaviour:
@@ -203,6 +221,8 @@ MonoBehaviour:
   m_LastSelected: 1
 --- !u!114 &6
 >>>>>>> Alex
+=======
+>>>>>>> Heath
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 6}
   - {fileID: 2}
   - {fileID: 7}
@@ -224,10 +245,16 @@ MonoBehaviour:
   - {fileID: 3}
   - {fileID: 8}
 >>>>>>> Alex
+=======
+  - {fileID: 6}
+  - {fileID: 2}
+  - {fileID: 7}
+>>>>>>> Heath
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     width: 1536
     height: 772.8
@@ -235,6 +262,10 @@ MonoBehaviour:
     width: 2560
     height: 1357.3334
 >>>>>>> Alex
+=======
+    width: 1536
+    height: 772.8
+>>>>>>> Heath
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -242,10 +273,14 @@ MonoBehaviour:
   m_UseBottomView: 1
   m_BottomViewHeight: 20
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &6
 =======
 --- !u!114 &7
 >>>>>>> Alex
+=======
+--- !u!114 &6
+>>>>>>> Heath
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,19 +298,27 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1536
 =======
     width: 2560
 >>>>>>> Alex
+=======
+    width: 1536
+>>>>>>> Heath
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &7
 =======
 --- !u!114 &8
 >>>>>>> Alex
+=======
+--- !u!114 &7
+>>>>>>> Heath
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,12 +335,16 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     y: 752.8
     width: 1536
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
 --- !u!114 &8
+<<<<<<< HEAD
 =======
     y: 1337.3334
     width: 2560
@@ -306,6 +353,8 @@ MonoBehaviour:
   m_MaxSize: {x: 0, y: 0}
 --- !u!114 &9
 >>>>>>> Alex
+=======
+>>>>>>> Heath
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 3}
   - {fileID: 4}
   - {fileID: 9}
@@ -326,11 +376,19 @@ MonoBehaviour:
   - {fileID: 10}
   - {fileID: 5}
 >>>>>>> Alex
+=======
+  - {fileID: 3}
+  - {fileID: 4}
+  - {fileID: 9}
+>>>>>>> Heath
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     width: 1536
     height: 722.8
   m_MinSize: {x: 300, y: 100}
@@ -338,6 +396,7 @@ MonoBehaviour:
   vertical: 0
   controlID: 47
 --- !u!114 &9
+<<<<<<< HEAD
 =======
     width: 2560
     height: 1307.3334
@@ -347,6 +406,8 @@ MonoBehaviour:
   controlID: 175
 --- !u!114 &10
 >>>>>>> Alex
+=======
+>>>>>>> Heath
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,17 +421,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 10}
 =======
   - {fileID: 4}
   - {fileID: 2}
 >>>>>>> Alex
+=======
+  - {fileID: 10}
+>>>>>>> Heath
   - {fileID: 11}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     width: 1052.8
     height: 722.8
   m_MinSize: {x: 100, y: 100}
@@ -378,6 +446,7 @@ MonoBehaviour:
   vertical: 1
   controlID: 48
 --- !u!114 &10
+<<<<<<< HEAD
 =======
     width: 2560
     height: 728.6667
@@ -387,6 +456,8 @@ MonoBehaviour:
   controlID: 176
 --- !u!114 &11
 >>>>>>> Alex
+=======
+>>>>>>> Heath
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -402,6 +473,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     x: 0
     y: 0
     width: 1052.8
@@ -473,16 +547,22 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     x: 483.2
     y: 73.6
     width: 1051.8
     height: 347
+<<<<<<< HEAD
 =======
     x: 2560
     y: 801.3334
     width: 2560
     height: 557.6667
 >>>>>>> Alex
+=======
+>>>>>>> Heath
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -494,6 +574,9 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
   m_SerializedViewNames: []
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
@@ -623,6 +706,7 @@ MonoBehaviour:
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
 --- !u!114 &14
+<<<<<<< HEAD
 =======
   m_SearchFilter:
     m_NameFilter: 
@@ -738,6 +822,8 @@ MonoBehaviour:
   m_DirectoriesAreaWidth: 207
 --- !u!114 &13
 >>>>>>> Alex
+=======
+>>>>>>> Heath
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -759,16 +845,22 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     x: 181.6
     y: 73.6
     width: 299.6
     height: 701.8
+<<<<<<< HEAD
 =======
     x: 2817.3333
     y: 72.66667
     width: 486.66666
     height: 707.6667
 >>>>>>> Alex
+=======
+>>>>>>> Heath
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -792,6 +884,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 --- !u!114 &14
@@ -859,6 +952,8 @@ MonoBehaviour:
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
 >>>>>>> Alex
+=======
+>>>>>>> Heath
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -881,16 +976,22 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     x: 483.2
     y: 73.6
     width: 1051.8
     height: 347
+<<<<<<< HEAD
 =======
     x: 3306
     y: 72.66667
     width: 1813
     height: 707.6667
 >>>>>>> Alex
+=======
+>>>>>>> Heath
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -906,10 +1007,14 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
       snapOffset: {x: -166, y: -26.399994}
 =======
       snapOffset: {x: -166, y: -26.666687}
 >>>>>>> Alex
+=======
+      snapOffset: {x: -166, y: -26.399994}
+>>>>>>> Heath
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
@@ -936,10 +1041,14 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
       snapOffset: {x: 0, y: 24.8}
 =======
       snapOffset: {x: 0, y: 25}
 >>>>>>> Alex
+=======
+      snapOffset: {x: 0, y: 24.8}
+>>>>>>> Heath
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -966,10 +1075,14 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
       snapOffset: {x: 0, y: 24.8}
 =======
       snapOffset: {x: 0, y: 25}
 >>>>>>> Alex
+=======
+      snapOffset: {x: 0, y: 24.8}
+>>>>>>> Heath
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -1262,6 +1375,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 67.7701, y: -0.31767356, z: 0.2292906}
     speed: 2
     m_Value: {x: 67.7701, y: -0.31767356, z: 0.2292906}
@@ -1270,6 +1384,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.71431017, y: -2.7272267, z: 3.6112275}
 >>>>>>> Alex
+=======
+    m_Target: {x: 67.7701, y: -0.31767356, z: 0.2292906}
+    speed: 2
+    m_Value: {x: 67.7701, y: -0.31767356, z: 0.2292906}
+>>>>>>> Heath
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1316,6 +1435,9 @@ MonoBehaviour:
     m_gridOpacity: 0.5
   m_Rotation:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     m_Target: {x: -0.5154568, y: -0.13606216, z: 0.08326127, w: -0.84203434}
     speed: 2
     m_Value: {x: -0.51629645, y: -0.13971, z: 0.08578274, w: -0.8405716}
@@ -1323,6 +1445,7 @@ MonoBehaviour:
     m_Target: 8.525967
     speed: 2
     m_Value: 8.433852
+<<<<<<< HEAD
 =======
     m_Target: {x: 0.07112064, y: -0.9285247, z: 0.24383749, w: 0.270816}
     speed: 2
@@ -1332,6 +1455,8 @@ MonoBehaviour:
     speed: 2
     m_Value: 2.6758456
 >>>>>>> Alex
+=======
+>>>>>>> Heath
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1378,16 +1503,22 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     x: 483.2
     y: 441.6
     width: 1051.8
     height: 333.8
+<<<<<<< HEAD
 =======
     x: 3493.3335
     y: 72.66667
     width: 1625.6667
     height: 1003
 >>>>>>> Alex
+=======
+>>>>>>> Heath
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1399,6 +1530,9 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
@@ -1511,6 +1645,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
+<<<<<<< HEAD
 =======
   m_SerializedViewNames: []
   m_SerializedViewValues: []
@@ -1577,6 +1712,8 @@ MonoBehaviour:
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
 >>>>>>> Alex
+=======
+>>>>>>> Heath
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1599,16 +1736,22 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Heath
     x: 483.2
     y: 441.6
     width: 1051.8
     height: 333.8
+<<<<<<< HEAD
 =======
     x: 2560
     y: 801.3334
     width: 2560
     height: 557.6667
 >>>>>>> Alex
+=======
+>>>>>>> Heath
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
