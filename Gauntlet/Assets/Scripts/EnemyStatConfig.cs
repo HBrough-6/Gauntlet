@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewStatConfig", menuName = "Stat/Enemy Stats", order = 3)]
 public class EnemyStatConfig : ScriptableObject, IEnemyStats
 {
-    [Range(0, 1)]
+    [Range(0, 5)]
     [Tooltip("The speed that the enemy moves at")]
     [SerializeField] private float speed;
 
@@ -43,7 +43,7 @@ public class EnemyStatConfig : ScriptableObject, IEnemyStats
 
     public int DamageLevel1
     {
-        get { return DamageLevel1; }
+        get { return damageLevel1; }
     }
 
     public int DamageLevel2

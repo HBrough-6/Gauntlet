@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4530883a9e5f9a41a48583452722399, type: 3}
   m_Name: Ghost
   m_EditorClassIdentifier: 
-  speed: 0
-  damageLevel1: 0
-  damageLevel2: 0
-  damageLevel3: 0
+  speed: 4
+  damageLevel1: 10
+  damageLevel2: 20
+  damageLevel3: 30
   range: 0
+  rangedDamage: 0
+  points: 0
+  type: 2

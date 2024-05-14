@@ -69,7 +69,8 @@ public class ItemStats : ScriptableObject
     [Tooltip("Determines if the object adds a potion")]
     [SerializeField] private int addsPotion;
 
-    
+    [Tooltip("Determines how many points the object is worth")]
+    [SerializeField] private int Points;
 
     public string ItemName
     {

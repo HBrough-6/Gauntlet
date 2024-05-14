@@ -58,6 +58,7 @@ public class NewEnemyMovement : MonoBehaviour
                 break;
             case EnemyCategory.Sorcerer:
                 StartCoroutine(Attack());
+                StartCoroutine(Disappear());
                 break;
             default:
                 break;
@@ -244,10 +245,9 @@ public class NewEnemyMovement : MonoBehaviour
             {
                 // player hasn't moved
                 closestPlayer.gameObject.GetComponent<PlayerData>().TakeDamage(GetComponent<Enemy>().GetDamageAmount());
+                Destroy(gameObject);
                 //Debug.Log("attacked");
             }
-            // cooldown
-            yield return new WaitForSeconds(attackCooldownDuration / 2);
         }
     }
 
@@ -271,8 +271,8 @@ public class NewEnemyMovement : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
-            invisible = true;
+            yield return new WaitForSeconds(1.5f);
+            ToggleInvisible();
         }
     }
 
