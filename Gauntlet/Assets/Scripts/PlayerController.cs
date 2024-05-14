@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     private float speed = 2;
     private float moveDist = 0.5f;
 
-    private bool moving = false;
+    public bool moving = false;
+    public Vector3 nextMoveDir;
     private Vector3 moveForward = Vector3.forward;
 
 
@@ -42,37 +43,49 @@ public class PlayerController : MonoBehaviour
         canShoot = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private bool meleeOnCooldown = false;
+
+
+    public bool cancelMove = false;
 
     private IEnumerator Move(Vector3 direction)
     {
+
         Transform objectInWay = DetectInDirection(direction);
-        if (objectInWay == null)
+        if (objectInWay == null || objectInWay.CompareTag("Item") || objectInWay.CompareTag("ExitDoor"))
         {
-            Vector3 startPos = transform.position;
-            Vector3 endPos = transform.position + direction * moveDist;
-            moving = true;
-            float startTime = Time.time;
-            float journeyLength = Vector3.Distance(startPos, endPos);
-
-            float percentComplete = 0;
-            while (percentComplete < 1)
+            cancelMove = false;
+            if (!moving)
             {
-                // Distance moved equals elapsed time times speed..
-                float distCovered = (Time.time - startTime) * speed;
-                // Fraction of journey completed equals current distance divided by total distance.
-                float fractionOfJourney = distCovered / journeyLength;
-                // Set our position as a fraction of the distance between the markers.
-                transform.position = Vector3.Lerp(startPos, endPos, fractionOfJourney);
-                percentComplete = fractionOfJourney;
-                yield return null;
-            }
+                Vector3 startPos = transform.position;
+                Vector3 endPos = transform.position + direction * moveDist;
+                moving = true;
+                float startTime = Time.time;
+                float journeyLength = Vector3.Distance(startPos, endPos);
 
-            moving = false;
+                float percentComplete = 0;
+                while (percentComplete < 1 && !cancelMove)
+                {
+                    // Distance moved equals elapsed time times speed..
+                    float distCovered = (Time.time - startTime) * speed;
+                    // Fraction of journey completed equals current distance divided by total distance.
+                    float fractionOfJourney = distCovered / journeyLength;
+                    // Set our position as a fraction of the distance between the markers.
+                    transform.position = Vector3.Lerp(startPos, endPos, fractionOfJourney);
+                    percentComplete = fractionOfJourney;
+                    yield return null;
+                }
+                cancelMove = false;
+                moving = false;
+            }
+        }
+        else if (objectInWay.gameObject.tag == "Enemy")
+        {
+            StartCoroutine(MeleeAttack(objectInWay.gameObject));
+        }
+        else if (objectInWay.CompareTag("Door"))
+        {
+            objectInWay.GetComponent<Door>().Activate(transform.GetComponent<Inventory>());
         }
     }
 
@@ -135,7 +148,6 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(transform.position, direction, Color.blue, 5);
         if (Physics.Raycast(transform.position, direction, out hit, dist))
         {
-            Debug.Log(hit.transform.name);
             return hit.transform;
         }
         return null;
@@ -143,21 +155,34 @@ public class PlayerController : MonoBehaviour
 
     private void OnGUI()
     {
-        if (GUILayout.Button("forwards") && !moving)
+        if (GUILayout.Button("forwards"))
         {
             StartCoroutine(Move(Vector3.forward));
+            nextMoveDir = Vector3.forward;
+
         }
         if (GUILayout.Button("Left"))
         {
             StartCoroutine(Move(Vector3.left));
+            nextMoveDir = Vector3.forward;
         }
         if (GUILayout.Button("right"))
         {
             StartCoroutine(Move(Vector3.right));
+            nextMoveDir = Vector3.forward;
         }
         if (GUILayout.Button("back"))
         {
             StartCoroutine(Move(Vector3.back));
+            nextMoveDir = Vector3.forward;
+        }
+        if (GUILayout.Button("Shoot"))
+        {
+            GetComponent<PlayerData>().Shoot(Vector3.forward);
+        }
+        if (GUILayout.Button("Potion"))
+        {
+            GetComponent<PlayerData>().ActivatePotion();
         }
         if (GUILayout.Button("MAttack"))
         {
@@ -167,5 +192,22 @@ public class PlayerController : MonoBehaviour
         {
             ProjectileAttack();
         }
+    }
+
+    private IEnumerator MeleeAttack(GameObject enemy)
+    {
+        if (!meleeOnCooldown)
+        {
+            meleeOnCooldown = !meleeOnCooldown;
+            enemy.GetComponent<Enemy>().TakeDamage(1);
+            yield return new WaitForSeconds(1);
+            meleeOnCooldown = !meleeOnCooldown;
+
+        }
+    } 
+
+    public void CancelMoveEarly()
+    {
+        cancelMove = true;
     }
 }

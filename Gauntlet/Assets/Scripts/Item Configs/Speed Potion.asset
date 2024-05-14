@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2931ff36d0f9f48808dd3ee4d3d3e6, type: 3}
+  m_Name: Speed Potion
+  m_EditorClassIdentifier: 
+  itemName: 
+  function: 0
+  breakable: 0
+  armorStrength: 0
+  shotStrength: 0
+  shotTravelSpeed: 0
+  magicVMonster: 0
+  magicVGenerator: 0
+  potionShotVMonster: 0
+  potionShotVGenerator: 0
+  meleeVMonsters: 0
+  meleeVGenerators: 0
+  runningSpeed: 1
+  healthIncrease: 0
+  addsKey: 0
+  addsPotion: 0
