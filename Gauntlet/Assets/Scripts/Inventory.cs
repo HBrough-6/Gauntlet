@@ -60,14 +60,14 @@ public class Inventory : MonoBehaviour
     {
         switch (type)
         {
-            case ItemType.Key:
+            case ItemType.Potion:
                 if (numPotions > 0)
                 {
                     numPotions--;
                     return true;
                 }
                 return false;
-            case ItemType.Potion:
+            case ItemType.Key:
                 if (numKeys > 0)
                 {
                     numKeys--;

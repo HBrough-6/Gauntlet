@@ -17,13 +17,15 @@ public class PlayerController : MonoBehaviour
 
     private bool meleeOnCooldown = false;
 
+    public bool cancelMove = false;
+
     private IEnumerator Move(Vector3 direction)
     {
 
         Transform objectInWay = DetectInDirection(direction);
-        if (objectInWay == null || objectInWay.CompareTag("Item"))
+        if (objectInWay == null || objectInWay.CompareTag("Item") || objectInWay.CompareTag("ExitDoor"))
         {
-
+            cancelMove = false;
             if (!moving)
             {
                 Vector3 startPos = transform.position;
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
                 float journeyLength = Vector3.Distance(startPos, endPos);
 
                 float percentComplete = 0;
-                while (percentComplete < 1)
+                while (percentComplete < 1 && !cancelMove)
                 {
                     // Distance moved equals elapsed time times speed..
                     float distCovered = (Time.time - startTime) * speed;
@@ -44,13 +46,17 @@ public class PlayerController : MonoBehaviour
                     percentComplete = fractionOfJourney;
                     yield return null;
                 }
-
+                cancelMove = false;
                 moving = false;
             }
         }
         else if (objectInWay.gameObject.tag == "Enemy")
         {
             StartCoroutine(MeleeAttack(objectInWay.gameObject));
+        }
+        else if (objectInWay.CompareTag("Door"))
+        {
+            objectInWay.GetComponent<Door>().Activate(transform.GetComponent<Inventory>());
         }
     }
 
@@ -109,5 +115,10 @@ public class PlayerController : MonoBehaviour
             meleeOnCooldown = !meleeOnCooldown;
 
         }
+    }
+
+    public void CancelMoveEarly()
+    {
+        cancelMove = true;
     }
 }

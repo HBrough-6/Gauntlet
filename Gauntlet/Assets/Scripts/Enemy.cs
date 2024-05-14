@@ -4,45 +4,41 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] public EnemyStatConfig stats;
 
-    public int enemyLevel;
-    public int enemySpeed;
-    public Vector3 enemyDamage;
-    public int score;
+    [SerializeField] protected int level;
 
+    protected NewEnemyMovement movement;
+    private void Awake()
+    {
+        // movement = gameObject.AddComponent<NewEnemyMovement>();
+    }
 
     public void TakeDamage(int damage)
     {
-        if ((enemyLevel -= damage) <= 0)
+        if ((level -= damage) <= 0)
         {
             Destroy(gameObject);
         }
     }
-
-    public void SetLevel()
+    
+    public void SetLevel(int newLevel)
     {
-        switch (enemyLevel)
-        {
-            case 0:
-                //enemyDamage = 5;
-                break;
-            case 1:
-                //enemyDamage = 8;
-                break;
-            case 2:
-                //enemyDamage = 10;
-                break;
-            default:
-                break;
-        }
-
+        level = newLevel;
     }
 
-
-
-
-
-
-
-
+    public int GetDamageAmount()
+    {
+        switch (level)
+        {
+            case 1:
+                return stats.DamageLevel1;
+            case 2:
+                return stats.DamageLevel2;
+            case 3:
+                return stats.DamageLevel3;
+            default:
+                return stats.DamageLevel1;
+        }
+    }
 }

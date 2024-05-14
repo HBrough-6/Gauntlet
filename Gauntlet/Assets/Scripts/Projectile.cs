@@ -33,7 +33,14 @@ public class Projectile : MonoBehaviour
         bool keep = false;
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().TakeDamage(damage);
+            if (!other.GetComponent<NewEnemyMovement>().invisible)
+            {
+                other.GetComponent<Enemy>().TakeDamage(damage);
+            }
+            else
+            {
+                keep = true;
+            }
         }
         else if (other.CompareTag("Generator"))
         {

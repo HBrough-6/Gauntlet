@@ -8,6 +8,8 @@ TagManager:
   - Item
   - Generator
   - Projectile
+  - Door
+  - ExitDoor
   layers:
   - Default
   - TransparentFX

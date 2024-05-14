@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum NextAction
 {
@@ -8,6 +9,8 @@ public enum NextAction
     AlignmentMove,
     Attack
 }
+
+
 
 public class NewEnemyMovement : MonoBehaviour
 {
@@ -24,43 +27,83 @@ public class NewEnemyMovement : MonoBehaviour
     [SerializeField] private float detectDist = 0.5f;
 
     [SerializeField] private Transform closestPlayer;
-    private Vector3 moveDirection;
+    public Vector3 moveDirection;
     private Vector3 alignmentMoveDirection;
 
-    private IEnumerator attackCoroutine;
     private bool attacking = false;
 
     [SerializeField] private float attackCooldownDuration = 2;
 
+    private bool onScreen = false;
+
+    [SerializeField] private bool deathAttack = false;
+
+    public EnemyCategory type;
+
+    public bool invisible = false;
+
     private void Awake()
     {
-        attackCoroutine = Attack();
+        type = GetComponent<Enemy>().stats.Type;
+        switch (type)
+        {
+            case EnemyCategory.Death:
+                StartCoroutine(DeathAttack());
+                break;
+            case EnemyCategory.Grunt:
+                StartCoroutine(Attack());
+                break;
+            case EnemyCategory.Ghost:
+                StartCoroutine(GhostAttack());
+                break;
+            case EnemyCategory.Sorcerer:
+                StartCoroutine(Attack());
+                break;
+            default:
+                break;
+        }
     }
 
     private void Update()
     {
+        if (onScreen)
+        {
+            if (!moving && !attacking)
+            {
+                FindClosestPlayer();
+                Debug.Log("Attacking: " + attacking);
+                Debug.Log("making new decision");
+                // find the next direction to move in
+                moveDirection = DetermineMoveDirection();
+                // find what is in the next tile in the direction to move in
+                DetectInDirection(moveDirection);
+                // Move, align, or start attacking
+                DoNextAction();
+            }
+            else if (attacking)
+            {
+                Debug.Log("Checking player position");
+                // check if the player is still adjacent
+                Debug.Log("Player in range: " + PlayerStillInRange(moveDirection));
+                attacking = PlayerStillInRange(moveDirection);
+            }
+        }
+    }
 
-        if (!moving && !attacking)
+    private void FindClosestPlayer()
+    {
+        float dist = 10000;
+        Transform player = null;
+        for (int i = 0; i < CameraController.Instance.players.Count; i++)
         {
-            Debug.Log("Attacking: " + attacking);
-            Debug.Log("making new decision");
-            // enemy is going to make a new decision
-            // stop attacking
-            StopCoroutine(attackCoroutine);
-            // find the next direction to move in
-            moveDirection = DetermineMoveDirection();
-            // find what is in the next tile in the direction to move in
-            DetectInDirection(moveDirection);
-            // Move, align, or start attacking
-            DoNextAction();
+            float distance = Vector3.Distance(CameraController.Instance.players[i].position, transform.position);
+            if (distance < dist)
+            {
+                dist = distance;
+                player = CameraController.Instance.players[i];
+            }
         }
-        else if (attacking)
-        {
-            Debug.Log("Checking player position");
-            // check if the player is still adjacent
-            Debug.Log("Player in range: " + PlayerStillInRange(moveDirection));
-            attacking = PlayerStillInRange(moveDirection);
-        }
+        closestPlayer = player;
     }
 
     private void DoNextAction()
@@ -74,7 +117,6 @@ public class NewEnemyMovement : MonoBehaviour
                     StartCoroutine(MoveTowards(alignmentMoveDirection));
                     break;
                 case NextAction.Attack:
-                StartCoroutine(attackCoroutine);
                     break;
                 default:
                     break;
@@ -171,16 +213,17 @@ public class NewEnemyMovement : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        attacking = true;
+        Debug.Log("started attacking");
         //Debug.Log("Start attacking");
-        while (attacking)
+        while (true)
         {
             yield return new WaitForSeconds(attackCooldownDuration / 2);
             // attack player
+            Debug.Log(PlayerStillInRange(moveDirection));
             if (attacking = PlayerStillInRange(moveDirection))
             {
                 // player hasn't moved
-                closestPlayer.gameObject.GetComponent<PlayerData>().TakeDamage(5);
+                closestPlayer.gameObject.GetComponent<PlayerData>().TakeDamage(GetComponent<Enemy>().GetDamageAmount());
                 //Debug.Log("attacked");
             }
             // cooldown
@@ -188,15 +231,58 @@ public class NewEnemyMovement : MonoBehaviour
         }
     }
 
-    private IEnumerator PlayerInRange()
+    private IEnumerator GhostAttack()
     {
+        Debug.Log("started attacking");
+        //Debug.Log("Start attacking");
         while (true)
         {
-
+            yield return new WaitForSeconds(attackCooldownDuration / 2);
+            // attack player
+            Debug.Log(PlayerStillInRange(moveDirection));
+            if (attacking = PlayerStillInRange(moveDirection))
+            {
+                // player hasn't moved
+                closestPlayer.gameObject.GetComponent<PlayerData>().TakeDamage(GetComponent<Enemy>().GetDamageAmount());
+                //Debug.Log("attacked");
+            }
+            // cooldown
+            yield return new WaitForSeconds(attackCooldownDuration / 2);
         }
     }
 
-    private bool PlayerStillInRange(Vector3 direction)
+    private IEnumerator DeathAttack()
+    {
+        while (true)
+        {
+            if (PlayerStillInRange(moveDirection))
+            {
+                // player hasn't moved
+                closestPlayer.gameObject.GetComponent<PlayerData>().TakeDamage(GetComponent<Enemy>().GetDamageAmount());
+                //Debug.Log("attacked");
+                if (closestPlayer.gameObject.GetComponent<PlayerData>().health < 200)
+                    Destroy(gameObject);
+            }
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    private IEnumerator Disappear()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            invisible = true;
+        }
+    }
+
+    private void ToggleInvisible()
+    {
+        invisible = !invisible;
+        GetComponent<MeshRenderer>().enabled = invisible;
+    }
+
+    public bool PlayerStillInRange(Vector3 direction)
     {
         RaycastHit hit;
         RaycastHit hit2;
@@ -323,8 +409,6 @@ public class NewEnemyMovement : MonoBehaviour
                 nextAction = NextAction.Attack;
                 // player is in the way
                 // attack
-
-                Debug.Log("both");
             }
 
         }
@@ -334,7 +418,6 @@ public class NewEnemyMovement : MonoBehaviour
             nextAction = NextAction.AlignmentMove;
             // move to the relative right
             alignmentMoveDirection = relativeRight;
-            Debug.Log("Left");
         }
         else if (rightHit)
         {
@@ -342,13 +425,16 @@ public class NewEnemyMovement : MonoBehaviour
             nextAction = NextAction.AlignmentMove;
             // move to the relative left
             alignmentMoveDirection = relativeLeft;
-            Debug.Log("right");
         }
         else
         {
             // make a normal move
             nextAction = NextAction.NormalMove;
-            Debug.Log("neither");
         }
+    }
+
+    public void ToggleOnScreen()
+    {
+        onScreen = !onScreen;
     }
 }

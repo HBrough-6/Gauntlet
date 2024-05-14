@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2931ff36d0f9f48808dd3ee4d3d3e6, type: 3}
   m_Name: Key
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Key
   function: 0
+  breakable: 0
   armorStrength: 0
   shotStrength: 0
   shotTravelSpeed: 0

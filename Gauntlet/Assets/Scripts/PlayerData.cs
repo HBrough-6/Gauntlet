@@ -8,7 +8,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private bool shotPowerUpgraded = true;
     [SerializeField] private bool shotSpeedUpgraded = false;
     [SerializeField] private bool magicVMonsterUpgraded = false;
-    [SerializeField] bool magicVGeneratorUpgraded = false;
+    [SerializeField] private bool magicVGeneratorUpgraded = false;
     [SerializeField] private bool potionShotVMonsterUpgraded = false;
     [SerializeField] private bool potionShotVGeneratorUpgraded = false;
     [SerializeField] private bool meleeVMonstersUpgraded = false;
@@ -19,11 +19,18 @@ public class PlayerData : MonoBehaviour
 
     [SerializeField] private StatConfig stats;
     private Inventory inventory;
+    private PlayerController controller;
 
-    [SerializeField] private int health = 2000;
+    [SerializeField] public int health = 2000;
 
     private int score;
     private bool projectileOnScreen = false;
+
+    private void Awake()
+    {
+        inventory = gameObject.AddComponent<Inventory>();
+        controller = gameObject.AddComponent<PlayerController>();
+    }
 
     public void IncreaseHealth(int HealthAmount)
     {
@@ -32,7 +39,7 @@ public class PlayerData : MonoBehaviour
 
     public void TakeDamage(int DamageAmount)
     {
-        //Debug.Log("full damage" + DamageAmount);
+        Debug.Log("full damage" + DamageAmount);
         if (armorStrengthUpgraded)
         {
             health -=  (int)(DamageAmount * 1 - stats.ExtraArmorStrength);
