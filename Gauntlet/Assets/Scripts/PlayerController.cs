@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 // Brough, Heath
 // Created 4/11
@@ -15,13 +16,14 @@ public class PlayerController : MonoBehaviour
     public Vector3 nextMoveDir;
     private Vector3 moveForward = Vector3.forward;
 
-
-
+    //controls
+    private PlayerMovement controller;
+    private Vector3 playerVelocity;
 
     //melee attack variables
     public GameObject meleeWeapon;
     public Transform meleeSpawn;
-    private float meleeDelayTime =4f;
+    private float meleeDelayTime = 4f;
     private bool canSwing;
 
     //shoot attack variables
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        controller = gameObject.GetComponent<PlayerMovement>();
         canSwing = true;
         canShoot = true;
     }
@@ -48,6 +51,97 @@ public class PlayerController : MonoBehaviour
 
     public bool cancelMove = false;
 
+
+
+    public void OnMoveUp()
+    {
+        Debug.Log("up");
+        StartCoroutine(Move(Vector3.forward));
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+    }
+    public void OnMoveDown()
+    {
+        Debug.Log("down");
+        StartCoroutine(Move(Vector3.back));
+        transform.rotation = Quaternion.Euler(0, 180, 0);
+
+    }
+    public void OnMoveLeft()
+    {
+        Debug.Log("left");
+        StartCoroutine(Move(Vector3.left));
+        transform.rotation = Quaternion.Euler(0, 270, 0);
+
+    }
+    public void OnMoveRight()
+    {
+        Debug.Log("right");
+        StartCoroutine(Move(Vector3.right));
+        transform.rotation = Quaternion.Euler(0, 90, 0);
+
+
+    }
+
+    public void OnMoveUpRight()
+    {
+        if (Input.GetKey(KeyCode.T))
+        {
+            Debug.Log("moveUpRight");
+            StartCoroutine(Move((Vector3.right) + new Vector3(0, 0, .8f)));
+            transform.rotation = Quaternion.Euler(0, 45, 0);
+
+        }
+    }
+    public void OnMoveUpLeft()
+    {
+        if (Input.GetKey(KeyCode.Y))
+        {
+            Debug.Log("moveUpRight");
+            StartCoroutine(Move((Vector3.left) + new Vector3(0, 0, .8f)));
+            transform.rotation = Quaternion.Euler(0, 315, 0);
+
+        }
+    }
+    public void OnMoveDownRight()
+    {
+        if (Input.GetKey(KeyCode.U))
+        {
+            Debug.Log("moveUpRight");
+            StartCoroutine(Move((Vector3.right) + new Vector3(0, 0, -0.8f)));
+            transform.rotation = Quaternion.Euler(0, 135, 0);
+
+        }
+    }
+    public void OnMoveDownLeft()
+    {
+        if (Input.GetKey(KeyCode.I))
+        {
+            Debug.Log("moveUpRight");
+            StartCoroutine(Move((Vector3.left) + new Vector3(0, 0, -0.8f)));
+            transform.rotation = Quaternion.Euler(0, 225, 0);
+
+        }
+    }
+
+
+
+    public void OnMagic()
+    {
+        Debug.Log("MAGIC");
+        ProjectileAttack();
+    }
+
+
+
+
+
+
+    /// <summary>
+    /// movement
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     private IEnumerator Move(Vector3 direction)
     {
 
@@ -103,10 +197,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(SwingDelay());
         }
     }
-    IEnumerator  SwingDelay()
+    IEnumerator SwingDelay()
     {
         canSwing = false;
-        yield return  new WaitForSeconds(meleeDelayTime);
+        yield return new WaitForSeconds(meleeDelayTime);
     }
     /// <summary>
     /// Projectile attack
@@ -153,46 +247,7 @@ public class PlayerController : MonoBehaviour
         return null;
     }
 
-    private void OnGUI()
-    {
-        if (GUILayout.Button("forwards"))
-        {
-            StartCoroutine(Move(Vector3.forward));
-            nextMoveDir = Vector3.forward;
 
-        }
-        if (GUILayout.Button("Left"))
-        {
-            StartCoroutine(Move(Vector3.left));
-            nextMoveDir = Vector3.forward;
-        }
-        if (GUILayout.Button("right"))
-        {
-            StartCoroutine(Move(Vector3.right));
-            nextMoveDir = Vector3.forward;
-        }
-        if (GUILayout.Button("back"))
-        {
-            StartCoroutine(Move(Vector3.back));
-            nextMoveDir = Vector3.forward;
-        }
-        if (GUILayout.Button("Shoot"))
-        {
-            GetComponent<PlayerData>().Shoot(Vector3.forward);
-        }
-        if (GUILayout.Button("Potion"))
-        {
-            GetComponent<PlayerData>().ActivatePotion();
-        }
-        if (GUILayout.Button("MAttack"))
-        {
-            MeleeAttack();
-        }
-        if (GUILayout.Button("pAttack"))
-        {
-            ProjectileAttack();
-        }
-    }
 
     private IEnumerator MeleeAttack(GameObject enemy)
     {
@@ -204,7 +259,7 @@ public class PlayerController : MonoBehaviour
             meleeOnCooldown = !meleeOnCooldown;
 
         }
-    } 
+    }
 
     public void CancelMoveEarly()
     {

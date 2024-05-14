@@ -148,11 +148,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7914041910575055452}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51052087b3bb84141be4971ae2d0ad3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moving: 0
+  nextMoveDir: {x: 0, y: 0, z: 0}
   meleeWeapon: {fileID: 5893994305023337802}
   meleeSpawn: {fileID: 0}
   projectileWeapon: {fileID: 8765217702697042892, guid: cf2698e87e618ad44bd60ad3712720db,
@@ -161,6 +163,7 @@ MonoBehaviour:
   potionAmt: 0
   foodAmt: 0
   keyAmt: 0
+  cancelMove: 0
 --- !u!114 &7829905848961308500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,9 +192,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7899167463425710074}
+      - m_Target: {fileID: 9196432527543356601}
         m_TargetAssemblyTypeName: TempPC, Assembly-CSharp
-        m_MethodName: OnMelee
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -205,8 +208,8 @@ MonoBehaviour:
     m_ActionName: Player/Melee[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7899167463425710074}
-        m_TargetAssemblyTypeName: TempPC, Assembly-CSharp
+      - m_Target: {fileID: 9196432527543356601}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMagic
         m_Mode: 1
         m_Arguments:
@@ -221,8 +224,8 @@ MonoBehaviour:
     m_ActionName: Player/Magic[/Keyboard/shift]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7899167463425710074}
-        m_TargetAssemblyTypeName: TempPC, Assembly-CSharp
+      - m_Target: {fileID: 9196432527543356601}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMoveUp
         m_Mode: 1
         m_Arguments:
@@ -237,8 +240,8 @@ MonoBehaviour:
     m_ActionName: Player/MoveUp[/DualShock4GamepadHID/leftStick/up,/Keyboard/w]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7899167463425710074}
-        m_TargetAssemblyTypeName: TempPC, Assembly-CSharp
+      - m_Target: {fileID: 9196432527543356601}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMoveDown
         m_Mode: 1
         m_Arguments:
@@ -253,8 +256,8 @@ MonoBehaviour:
     m_ActionName: Player/MoveDown[/DualShock4GamepadHID/leftStick/down,/Keyboard/s]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7899167463425710074}
-        m_TargetAssemblyTypeName: TempPC, Assembly-CSharp
+      - m_Target: {fileID: 9196432527543356601}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMoveLeft
         m_Mode: 1
         m_Arguments:
@@ -269,8 +272,8 @@ MonoBehaviour:
     m_ActionName: Player/MoveLeft[/DualShock4GamepadHID/leftStick/left,/Keyboard/a]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7899167463425710074}
-        m_TargetAssemblyTypeName: TempPC, Assembly-CSharp
+      - m_Target: {fileID: 9196432527543356601}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMoveRight
         m_Mode: 1
         m_Arguments:
@@ -305,9 +308,9 @@ MonoBehaviour:
     m_ActionName: Player/DiagnolMovement[/DualShock4GamepadHID/leftStick]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7899167463425710074}
+      - m_Target: {fileID: 9196432527543356601}
         m_TargetAssemblyTypeName: TempPC, Assembly-CSharp
-        m_MethodName: OnGeneralMovement
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -331,7 +334,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7914041910575055452}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 539adf651f0ef70449f02e1f64eb859a, type: 3}
   m_Name: 
