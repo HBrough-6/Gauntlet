@@ -89,6 +89,24 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DiagnolMovement"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8f4316d1-8fb5-4bbc-b54e-344384a1d48d"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GeneralMovement"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4ece3267-05db-4561-a221-e21a909732b0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -245,6 +263,83 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""action"": ""MoveUpRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""359c12fa-c023-4c70-99a5-6aa251cc5886"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""DiagnolMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1070238-6141-4cf3-9133-849fa0d1b063"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""GeneralMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""16acd160-a52b-455c-8dba-251b250ffb7b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GeneralMovement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""7ab81c16-7930-41e6-aaeb-3a9c529d0006"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GeneralMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""bbce9e62-b6de-4d45-a308-e443d64234ea"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GeneralMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d7b6bd67-ee59-4e53-88e1-22de6158509a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GeneralMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3a11d152-8d3c-4bf1-be24-a66414457f0a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GeneralMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -283,6 +378,8 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         m_Player_MoveLeft = m_Player.FindAction("MoveLeft", throwIfNotFound: true);
         m_Player_MoveRight = m_Player.FindAction("MoveRight", throwIfNotFound: true);
         m_Player_MoveUpRight = m_Player.FindAction("MoveUpRight", throwIfNotFound: true);
+        m_Player_DiagnolMovement = m_Player.FindAction("DiagnolMovement", throwIfNotFound: true);
+        m_Player_GeneralMovement = m_Player.FindAction("GeneralMovement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -351,6 +448,8 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MoveLeft;
     private readonly InputAction m_Player_MoveRight;
     private readonly InputAction m_Player_MoveUpRight;
+    private readonly InputAction m_Player_DiagnolMovement;
+    private readonly InputAction m_Player_GeneralMovement;
     public struct PlayerActions
     {
         private @PlayerMovement m_Wrapper;
@@ -362,6 +461,8 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         public InputAction @MoveLeft => m_Wrapper.m_Player_MoveLeft;
         public InputAction @MoveRight => m_Wrapper.m_Player_MoveRight;
         public InputAction @MoveUpRight => m_Wrapper.m_Player_MoveUpRight;
+        public InputAction @DiagnolMovement => m_Wrapper.m_Player_DiagnolMovement;
+        public InputAction @GeneralMovement => m_Wrapper.m_Player_GeneralMovement;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -392,6 +493,12 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @MoveUpRight.started += instance.OnMoveUpRight;
             @MoveUpRight.performed += instance.OnMoveUpRight;
             @MoveUpRight.canceled += instance.OnMoveUpRight;
+            @DiagnolMovement.started += instance.OnDiagnolMovement;
+            @DiagnolMovement.performed += instance.OnDiagnolMovement;
+            @DiagnolMovement.canceled += instance.OnDiagnolMovement;
+            @GeneralMovement.started += instance.OnGeneralMovement;
+            @GeneralMovement.performed += instance.OnGeneralMovement;
+            @GeneralMovement.canceled += instance.OnGeneralMovement;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -417,6 +524,12 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @MoveUpRight.started -= instance.OnMoveUpRight;
             @MoveUpRight.performed -= instance.OnMoveUpRight;
             @MoveUpRight.canceled -= instance.OnMoveUpRight;
+            @DiagnolMovement.started -= instance.OnDiagnolMovement;
+            @DiagnolMovement.performed -= instance.OnDiagnolMovement;
+            @DiagnolMovement.canceled -= instance.OnDiagnolMovement;
+            @GeneralMovement.started -= instance.OnGeneralMovement;
+            @GeneralMovement.performed -= instance.OnGeneralMovement;
+            @GeneralMovement.canceled -= instance.OnGeneralMovement;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -461,5 +574,7 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         void OnMoveLeft(InputAction.CallbackContext context);
         void OnMoveRight(InputAction.CallbackContext context);
         void OnMoveUpRight(InputAction.CallbackContext context);
+        void OnDiagnolMovement(InputAction.CallbackContext context);
+        void OnGeneralMovement(InputAction.CallbackContext context);
     }
 }
