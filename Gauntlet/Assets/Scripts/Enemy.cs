@@ -15,8 +15,8 @@ public class Enemy : MonoBehaviour
     public Vector3 enemyDamage;
     public int score;
 
-
-    private void TakeDamage()
+    public int takeDamage;
+    private void TakeDamage(int takeDamage)
     {
         //
     }

@@ -26,7 +26,6 @@ public class TempEnemy : MonoBehaviour
 
     private void OnEnable()
     {
-        //AttackPlayer();
         StartCoroutine(SelfDestruct());
 
     }

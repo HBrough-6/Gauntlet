@@ -25,10 +25,12 @@ public class Generator : MonoBehaviour
     public int maxPoolSize = 10;
     public int stackDefaultCapacity = 10;
 
+//[SerializeField] private LevelManager levelManager;
 
     // Start is called before the first frame update
     void Awake()
     {
+//levelManager.addGenerator(this);
         _enemyPool = new ObjectPool<TempEnemy>(CreateEnemy,
                     OnTakeFromPool,
                     OnReturntoPool,
@@ -51,6 +53,16 @@ public class Generator : MonoBehaviour
         SpawnEnemy();
     }
 
+    private void OnScreen()
+    {
+        //
+    }
+    private void OffScreen()
+    {
+        //
+    }
+
+
 
 
     /// <summary>
@@ -61,7 +73,6 @@ public class Generator : MonoBehaviour
     private void OnTakeFromPool(TempEnemy enemy)
     {
         int randomValue = Random.Range(0, spawnPositions.Length);
-        Debug.Log(randomValue);
         enemy.gameObject.SetActive(true);
         enemy.enemyLevel = generatorLevel;
         enemy._currentHealth = generatorLevel;

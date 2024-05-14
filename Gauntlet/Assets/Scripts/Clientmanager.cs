@@ -13,15 +13,4 @@ public class Clientmanager : MonoBehaviour
 
 
 
-    private void OnGUI()
-    {
-        if (GUILayout.Button("Spawn Drone"))
-        {
-            _generator.SpawnEnemy();
-                Debug.Log("Yeehaw");
-        }
-
-
-    }
-
 }

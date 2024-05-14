@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1267
     height: 697
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 268.5
     height: 447
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -93,8 +93,8 @@ MonoBehaviour:
     y: 0
     width: 194
     height: 447
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -337,9 +337,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 53}
-    m_SelectedIDs: 746d0000
-    m_LastClickedID: 28020
-    m_ExpandedIDs: 00000000ba6b00007a6d000000ca9a3b
+    m_SelectedIDs: ac6d0000
+    m_LastClickedID: 28076
+    m_ExpandedIDs: 00000000f06b0000b26d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -367,7 +367,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ba6b0000
+    m_ExpandedIDs: 00000000f06b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -508,10 +508,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 48850000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 2438fcff28fbfffff4ffffff
+      scrollPos: {x: 0, y: 4}
+      m_SelectedIDs: 6c36fcff
+      m_LastClickedID: -248212
+      m_ExpandedIDs: 2c37fcff9696000098960000a8960000ba960000c4960000e296000008970000229700002c970000369700004497000050970000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -910,8 +910,8 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
   m_Gizmos: 1
-  m_OverrideSceneCullingMask: 6917529027641081856
-  m_SceneIsLit: 1
+  m_OverrideSceneCullingMask: 0
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
@@ -931,7 +931,7 @@ MonoBehaviour:
   m_SceneViewState:
     m_AlwaysRefresh: 0
     showFog: 1
-    showSkybox: 1
+    showSkybox: 0
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -966,13 +966,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.5486216, y: 0.18958025, z: -0.12941816, w: -0.8039845}
+    m_Target: {x: -0.39641133, y: 0.09255783, z: -0.04025062, w: -0.9125452}
     speed: 2
-    m_Value: {x: -0.54860336, y: 0.18957394, z: -0.12941386, w: -0.80395776}
+    m_Value: {x: -0.39639792, y: 0.092554696, z: -0.04024926, w: -0.9125143}
   m_Size:
-    m_Target: 2.6168253
+    m_Target: 0.8660254
     speed: 2
-    m_Value: 2.6168253
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 0
     speed: 2
