@@ -9,42 +9,43 @@ public class Enemy : MonoBehaviour
 
 
 
+    [SerializeField] public EnemyStatConfig stats;
 
-    public int enemyLevel;
-    public int enemySpeed;
-    public Vector3 enemyDamage;
-    public int score;
+    [SerializeField] protected int level;
 
     public int takeDamage;
     private void TakeDamage(int takeDamage)
+    protected NewEnemyMovement movement;
+    private void Awake()
     {
-        //
+        // movement = gameObject.AddComponent<NewEnemyMovement>();
     }
 
-    public void SetLevel()
+    public void TakeDamage(int damage)
     {
-        switch (enemyLevel)
+        if ((level -= damage) <= 0)
         {
-            case 0:
-                //enemyDamage = 5;
-                break;
-            case 1:
-                //enemyDamage = 8;
-                break;
-            case 2:
-                //enemyDamage = 10;
-                break;
-            default:
-                break;
+            Destroy(gameObject);
         }
-
+    }
+    
+    public void SetLevel(int newLevel)
+    {
+        level = newLevel;
     }
 
-
-
-
-
-
-
-
+    public int GetDamageAmount()
+    {
+        switch (level)
+        {
+            case 1:
+                return stats.DamageLevel1;
+            case 2:
+                return stats.DamageLevel2;
+            case 3:
+                return stats.DamageLevel3;
+            default:
+                return stats.DamageLevel1;
+        }
+    }
 }

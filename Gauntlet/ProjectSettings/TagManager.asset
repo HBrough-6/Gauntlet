@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Generator
+  - Enemy
+  - Item
+  - Projectile
+  - Door
+  - ExitDoor
   layers:
   - Default
   - TransparentFX

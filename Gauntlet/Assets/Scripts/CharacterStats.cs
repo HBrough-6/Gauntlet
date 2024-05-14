@@ -5,9 +5,21 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     public float armorStrength;
-    public int playerMagic;
+    public int shotStrength;
+    public int shotTravelSpeed;
+    public BoxCollider ShotCollisionBox;
+    public int MagicVMonster;
+    public int MagicVGenerator;
+    public int PotionShotVMonster;
+    public int PotionShotVGenerator;
+    public int MeleeVMonsters;
+    public float MeleeVGenerators;
+    public int RunningSpeed;
     private int playerHealth;
+<<<<<<< HEAD
     public static int playerSpeed;
+=======
+>>>>>>> Heath
 
 
 
