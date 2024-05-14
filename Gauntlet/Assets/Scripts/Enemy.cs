@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] public EnemyStatConfig stats;
 
-    [SerializeField] protected int level;
+    [SerializeField] private int level;
 
     protected NewEnemyMovement movement;
 
@@ -41,5 +41,25 @@ public class Enemy : MonoBehaviour
             default:
                 return stats.DamageLevel1;
         }
+    }
+
+
+    private IObjectPool<Enemy> _enemyPool { get; set; }
+    public void SetPool(IObjectPool<Enemy> pool)
+    {
+        _enemyPool = pool;
+    }
+
+    private void OnEnable()
+    {
+        
+
+    }
+
+
+    private void ReturnToPool()
+    {
+        _enemyPool.Release(this);
+
     }
 }
