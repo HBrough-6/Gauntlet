@@ -36,8 +36,12 @@ public class TempPC : MonoBehaviour
     public int foodAmt;
     public int keyAmt;
 
-
-
+    [SerializeField]
+    private Vector2 joystickAngle;
+    public void DashAim(InputAction.CallbackContext ctx)
+    {
+        Vector2 vec = ctx.ReadValue<Vector2>();
+    }
 
 
 
@@ -52,13 +56,21 @@ public class TempPC : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //Debug.Log(speed);
+        Debug.Log(joystickAngle);
         OnMoveUpRight();
         OnMoveUpLeft();
         OnMoveDownRight();
         OnMoveDownLeft();
 
     }
+
+    public void OnMove(InputAction.CallbackContext angle)
+    {
+        joystickAngle = angle.ReadValue<Vector2>();
+
+    }
+
+
     public void OnMoveUp()
     {
         Debug.Log("up");
@@ -259,33 +271,4 @@ public class TempPC : MonoBehaviour
         }
         return null;
     }
-    /*
-    private void OnGUI()
-    {
-        if (GUILayout.Button("forwards") && !moving)
-        {
-            StartCoroutine(Move(Vector3.forward));
-        }
-        if (GUILayout.Button("Left"))
-        {
-            StartCoroutine(Move(Vector3.left));
-        }
-        if (GUILayout.Button("right"))
-        {
-            StartCoroutine(Move(Vector3.right));
-        }
-        if (GUILayout.Button("back"))
-        {
-            StartCoroutine(Move(Vector3.back));
-        }
-        if (GUILayout.Button("MAttack"))
-        {
-            MeleeAttack();
-        }
-        if (GUILayout.Button("pAttack"))
-        {
-            ProjectileAttack();
-        }
-    }
-    */
 }
