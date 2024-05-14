@@ -16,10 +16,6 @@ public class CharacterStats : MonoBehaviour
     public float MeleeVGenerators;
     public int RunningSpeed;
     private int playerHealth;
-<<<<<<< HEAD
-    public static int playerSpeed;
-=======
->>>>>>> Heath
 
 
 

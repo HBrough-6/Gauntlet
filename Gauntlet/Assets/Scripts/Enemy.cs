@@ -13,13 +13,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] protected int level;
 
-    public int takeDamage;
-    private void TakeDamage(int takeDamage)
     protected NewEnemyMovement movement;
-    private void Awake()
-    {
-        // movement = gameObject.AddComponent<NewEnemyMovement>();
-    }
 
     public void TakeDamage(int damage)
     {

@@ -158,10 +158,8 @@ public class PlayerController : MonoBehaviour
         if (GUILayout.Button("forwards"))
         {
             StartCoroutine(Move(Vector3.forward));
-<<<<<<< HEAD
-=======
             nextMoveDir = Vector3.forward;
->>>>>>> Heath
+
         }
         if (GUILayout.Button("Left"))
         {
