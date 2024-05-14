@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 /*
  * [Rico,Alex]
  * 5/10/24
- * 
+ * This script gives players access to the menu at the start of the game and allows players to select how many players.
+ * It also allows players to select their character.
  */
 public class CharacterSelect : MonoBehaviour
 {

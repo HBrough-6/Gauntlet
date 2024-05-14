@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Brough, Heath
+ *  4/11/24
+ * Script for keeping dors locked or unlcked
+ */
+
 public class DoorController : MonoBehaviour
 {
     private List<Door> doors = new List<Door>();
@@ -10,7 +16,6 @@ public class DoorController : MonoBehaviour
     {
         doors.Add(door);
     }
-
     public void Unlock()
     {
         for (int i = 0; i < doors.Count; i++)

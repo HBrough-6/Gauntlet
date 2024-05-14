@@ -52,7 +52,9 @@ public class PlayerController : MonoBehaviour
     public bool cancelMove = false;
 
 
-
+    /// <summary>
+    /// Moves player forward
+    /// </summary>
     public void OnMoveUp()
     {
         Debug.Log("up");
@@ -60,6 +62,9 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
     }
+    /// <summary>
+    /// Moves player backwards
+    /// </summary>
     public void OnMoveDown()
     {
         Debug.Log("down");
@@ -67,6 +72,9 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 180, 0);
 
     }
+    /// <summary>
+    /// Moves player left
+    /// </summary>
     public void OnMoveLeft()
     {
         Debug.Log("left");
@@ -74,15 +82,20 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 270, 0);
 
     }
+    /// <summary>
+    /// Moves player right
+    /// </summary>
     public void OnMoveRight()
     {
         Debug.Log("right");
         StartCoroutine(Move(Vector3.right));
         transform.rotation = Quaternion.Euler(0, 90, 0);
-
-
     }
 
+    /// <summary>
+    /// Not used in game dues to no specific diagnol input.
+    /// Moves player in diagnol direction
+    /// </summary>
     public void OnMoveUpRight()
     {
         if (Input.GetKey(KeyCode.T))
@@ -93,6 +106,10 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+    /// <summary>
+    /// Not used in game dues to no specific diagnol input.
+    /// Moves player in diagnol direction
+    /// </summary>
     public void OnMoveUpLeft()
     {
         if (Input.GetKey(KeyCode.Y))
@@ -103,6 +120,10 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+    /// <summary>
+    /// Not used in game dues to no specific diagnol input.
+    /// Moves player in diagnol direction
+    /// </summary>
     public void OnMoveDownRight()
     {
         if (Input.GetKey(KeyCode.U))
@@ -113,6 +134,10 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+    /// <summary>
+    /// Not used in game dues to no specific diagnol input.
+    /// Moves player in diagnol direction
+    /// </summary>
     public void OnMoveDownLeft()
     {
         if (Input.GetKey(KeyCode.I))
@@ -125,24 +150,33 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// when x is used on controller (ps4),
+    /// playe shoots projectile out
+    /// </summary>
     public void OnMagic()
     {
         Debug.Log("MAGIC");
         ProjectileAttack();
     }
-
-
+    /// <summary>
+    /// Uses the move ienumerator
+    /// </summary>
+    /// <param name="direction"></param>
+    public void OnMove(Vector3 direction)
+    {
+        StartCoroutine(Move(direction));
+    }
 
 
 
 
     /// <summary>
-    /// movement
+    /// movement that registers objects, enemies and genrators in front of player
     /// </summary>
     /// <param name="direction"></param>
     /// <returns></returns>
-    private IEnumerator Move(Vector3 direction)
+    public IEnumerator Move(Vector3 direction)
     {
 
         Transform objectInWay = DetectInDirection(direction);
@@ -173,7 +207,7 @@ public class PlayerController : MonoBehaviour
                 moving = false;
             }
         }
-        else if (objectInWay.gameObject.tag == "Enemy")
+        else if (objectInWay.gameObject.tag == "Enemy" && objectInWay.CompareTag ("Generator"))
         {
             StartCoroutine(MeleeAttack(objectInWay.gameObject));
         }
@@ -197,6 +231,10 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(SwingDelay());
         }
     }
+    /// <summary>
+    /// delays melee attack
+    /// </summary>
+    /// <returns></returns>
     IEnumerator SwingDelay()
     {
         canSwing = false;
@@ -213,28 +251,15 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ShootDelay());
         }
     }
+    /// <summary>
+    /// delays projectile spawn
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ShootDelay()
     {
         canShoot = false;
         yield return new WaitForSeconds(shootDelayTime);
     }
-
-    /// <summary>
-    /// item container
-    /// </summary>
-    private void ItemContainer()
-    {
-
-    }
-
-
-
-
-
-
-
-
-
     private Transform DetectInDirection(Vector3 direction)
     {
         float dist = 1.1f;
@@ -248,19 +273,25 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// sets the attack and delay
+    /// </summary>
+    /// <param name="enemy"></param>
+    /// <returns></returns>
     private IEnumerator MeleeAttack(GameObject enemy)
     {
         if (!meleeOnCooldown)
         {
             meleeOnCooldown = !meleeOnCooldown;
-            enemy.GetComponent<Enemy>().TakeDamage(1);
+            GetComponent<PlayerData>().Attack(enemy);
             yield return new WaitForSeconds(1);
             meleeOnCooldown = !meleeOnCooldown;
 
         }
     }
-
+    /// <summary>
+    /// prevents movement from proceedding past currentpoistion
+    /// </summary>
     public void CancelMoveEarly()
     {
         cancelMove = true;
