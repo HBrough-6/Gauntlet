@@ -159,24 +159,6 @@ public class TempPC : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private IEnumerator Move(Vector3 direction)
     {
         Transform objectInWay = DetectInDirection(direction);
