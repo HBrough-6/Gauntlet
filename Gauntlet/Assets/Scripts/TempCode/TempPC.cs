@@ -21,14 +21,13 @@ public class TempPC : MonoBehaviour
     //melee attack variables
     public GameObject meleeWeapon;
     public Transform meleeSpawn;
-    private float meleeDelayTime = 4f;
     private bool canSwing;
 
-    //shoot attack variables
+    //projectile attack variables
     public GameObject projectileWeapon;
     public Transform shootSpawn;
-    private float shootDelayTime = 4f;
     private bool canShoot;
+
 
 
     //collectible variables
@@ -36,13 +35,9 @@ public class TempPC : MonoBehaviour
     public int foodAmt;
     public int keyAmt;
 
-    [SerializeField]
-    private Vector2 joystickAngle;
-    public void DashAim(InputAction.CallbackContext ctx)
-    {
-        Vector2 vec = ctx.ReadValue<Vector2>();
-    }
-
+    public GameObject projectileObject;
+    public Transform projectileSpawn;
+    [SerializeField] float projectileSpeed;
 
 
 
@@ -54,22 +49,31 @@ public class TempPC : MonoBehaviour
 
         controller = gameObject.GetComponent<PlayerMovement>();
     }
+    private void Update()
+    {
+        //transform.Translate(new Vector3(joystickAngle.x, 0, joystickAngle.y) * speed * Time.deltaTime);
+    }
     private void FixedUpdate()
     {
+        /*
         Debug.Log(joystickAngle);
         OnMoveUpRight();
         OnMoveUpLeft();
         OnMoveDownRight();
         OnMoveDownLeft();
-
+        */
     }
+    /*
+    public void OnGeneralMovement(InputAction.CallbackContext _context) => joystickAngle = _context.ReadValue<Vector2>();
+    
 
-    public void OnMove(InputAction.CallbackContext angle)
+    
+    public void OnDiagnolMovement(InputAction.CallbackContext angle)
     {
         joystickAngle = angle.ReadValue<Vector2>();
 
     }
-
+    */
 
     public void OnMoveUp()
     {
@@ -141,16 +145,7 @@ public class TempPC : MonoBehaviour
 
         }
     }
-    public Vector2 SnapAngle(Vector2 vector, int increments)
-    {
-        float angle = Mathf.Atan2(vector.y, vector.x);
-        float direction = ((angle / Mathf.PI) + 1) * 0.5f; // Convert to [0..1] range from [-pi..pi]
-        float snappedDirection = Mathf.Round(direction * increments) / increments; // Snap to increment
-        snappedDirection = ((snappedDirection * 2) - 1) * Mathf.PI; // Convert back to [-pi..pi] range
-        Vector2 snappedVector = new Vector2(Mathf.Cos(snappedDirection), Mathf.Sin(snappedDirection));
-        return vector.magnitude * snappedVector;
-    }
-
+    
 
     public void OnMelee()
     {
@@ -164,11 +159,7 @@ public class TempPC : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 
 
     private IEnumerator Move(Vector3 direction)
@@ -216,7 +207,7 @@ public class TempPC : MonoBehaviour
     {
         StartCoroutine(WalkAttack());
         canSwing = false;
-        yield return new WaitForSeconds(meleeDelayTime);
+        yield return new WaitForSeconds(.7f);
     }
     /// <summary>
     /// Projectile attack
@@ -226,14 +217,32 @@ public class TempPC : MonoBehaviour
         if (canShoot)
         {
             StartCoroutine(WalkAttack());
-            Instantiate(projectileWeapon, transform.position, Quaternion.identity);
+            if (canShoot == true)
+            {
+                StartCoroutine(ShootProjectiles());
+            }
             StartCoroutine(ShootDelay());
         }
     }
+    IEnumerator ShootProjectiles()
+    {
+        if (canShoot == true)
+        {
+            canShoot = false;
+            var projectile = Instantiate(projectileObject, projectileSpawn.position, projectileSpawn.rotation);
+            projectile.GetComponent<Rigidbody>().velocity = projectileSpawn.forward * projectileSpeed;
+        }
+        StartCoroutine(ShootDelay());
+        yield return null;
+    }
+    /// <summary>
+    /// lessens player from spamming the shoot
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ShootDelay()
     {
         canShoot = false;
-        yield return new WaitForSeconds(shootDelayTime);
+        yield return new WaitForSeconds(.2f);
     }
     IEnumerator WalkAttack()
     {
