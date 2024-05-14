@@ -19,19 +19,21 @@ public class Generator : MonoBehaviour
     //pool variables
     [SerializeField] Transform[] spawnPositions;
     [SerializeField] private float spawnTime = .5f;
-    [SerializeField] private TempEnemy enemyPrefab;
-    public IObjectPool<TempEnemy> _enemyPool;
+    [SerializeField] private Enemy enemyPrefab;
+    public IObjectPool<Enemy> _enemyPool;
     private float timeSinceSpawn;
     public int maxPoolSize = 10;
     public int stackDefaultCapacity = 10;
 
-//[SerializeField] private LevelManager levelManager;
+    [SerializeField] private LevelManager levelManager;
+
+    private bool onScreen = false;
 
     // Start is called before the first frame update
     void Awake()
     {
-//levelManager.addGenerator(this);
-        _enemyPool = new ObjectPool<TempEnemy>(CreateEnemy,
+        levelManager.AddGenerator(this);
+        _enemyPool = new ObjectPool<Enemy>(CreateEnemy,
                     OnTakeFromPool,
                     OnReturntoPool,
                     OnDestroyPoolObject,
@@ -41,9 +43,9 @@ public class Generator : MonoBehaviour
     }
 
 
-    private TempEnemy CreateEnemy()
+    private Enemy CreateEnemy()
     {
-        TempEnemy enemy = Instantiate(enemyPrefab);
+        Enemy enemy = Instantiate(enemyPrefab);
         enemy.SetPool(_enemyPool);
         return enemy;
     }
@@ -53,13 +55,9 @@ public class Generator : MonoBehaviour
         SpawnEnemy();
     }
 
-    private void OnScreen()
+   public void ToggleOnScreen()
     {
-        //
-    }
-    private void OffScreen()
-    {
-        //
+        onScreen = !onScreen;
     }
 
 
@@ -70,23 +68,22 @@ public class Generator : MonoBehaviour
     /// and matches enemy's level with the generator level
     /// </summary>
     /// <param name="enemy"></param>
-    private void OnTakeFromPool(TempEnemy enemy)
+    private void OnTakeFromPool(Enemy enemy)
     {
         int randomValue = Random.Range(0, spawnPositions.Length);
         enemy.gameObject.SetActive(true);
-        enemy.enemyLevel = generatorLevel;
-        enemy._currentHealth = generatorLevel;
+        enemy.SetLevel(generatorLevel);
         Transform spawnAt = spawnPositions[randomValue];
         enemy.transform.position = spawnAt.position;
     }
 
     //returns enemy to pool
-    private void OnReturntoPool(TempEnemy enemy)
+    private void OnReturntoPool(Enemy enemy)
     {
         enemy.gameObject.SetActive(false);
     }
 
-    private void OnDestroyPoolObject(TempEnemy enemy)
+    private void OnDestroyPoolObject(Enemy enemy)
     {
         Destroy(enemy.gameObject);
     }
@@ -96,7 +93,7 @@ public class Generator : MonoBehaviour
     /// </summary>
     public void SpawnEnemy()
     {
-        if (Time.time > timeSinceSpawn)
+        if (/*onScreen &&*/ Time.time > timeSinceSpawn)
         {
             _enemyPool.Get();
             timeSinceSpawn = Time.time + spawnTime;
@@ -104,24 +101,16 @@ public class Generator : MonoBehaviour
     }
 
 
-    private void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        if (generatorLevel == 1)
+        generatorLevel -= damage;
+        if (generatorLevel <= 0)
         {
-            //give player points
-            Destroy(gameObject);
-        }
-        if (generatorLevel == 2)
-        {
-            generatorLevel--;
-        }
-        if (generatorLevel == 3)
-        {
-            generatorLevel--;
+            gameObject.SetActive(false);
         }
     }
 
-    /// <summary>
+    /*/// <summary>
     /// Coollisions
     /// </summary>
     /// <param name="collision"></param>
@@ -169,5 +158,5 @@ public class Generator : MonoBehaviour
         {
             TakeDamage();
         }
-    }
+    }*/
 }

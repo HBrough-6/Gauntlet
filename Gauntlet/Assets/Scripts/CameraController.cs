@@ -78,7 +78,7 @@ public class CameraController : Singleton<CameraController>
 
         for (int i = 0; i < GeneratorsOnScreen.Count; i++)
         {
-            //GeneratorsOnScreen[i].GetComponent<Generator>().TakeDamage(GeneratorDamage);
+            GeneratorsOnScreen[i].GetComponent<Generator>().TakeDamage(GeneratorDamage);
         }
     }
 
